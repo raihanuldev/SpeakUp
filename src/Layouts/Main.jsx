@@ -1,9 +1,12 @@
+import { Outlet } from "react-router-dom";
+import Nabvar from "../Components/Nabvar/Nabvar";
 
 
 const Main = () => {
     return (
         <div>
-            this is main
+            <Nabvar></Nabvar>
+            <Outlet></Outlet>
         </div>
     );
 };
