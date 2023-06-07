@@ -4,6 +4,8 @@ import Social from "../../../Components/SocialIcon/Social";
 
 const Singup = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
+    const onSubmit = data => console.log(data);
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
