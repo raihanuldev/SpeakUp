@@ -3,17 +3,32 @@ import { Link } from 'react-router-dom';
 import { AuthContex } from '../../Providers/AuthProvider';
 
 const Nabvar = () => {
-    const {logout} = useContext(AuthContex);
-    const handleLogut =()=>{
+    const { user } = useContext(AuthContex);
+    const { logout } = useContext(AuthContex);
+    const handleLogut = () => {
         logout()
     }
     const items = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/instructors'>Instructors</Link></li>
         <li><Link to='/classes'>Classes</Link></li>
-        <li><Link to='/classes'>Dashboard</Link></li>
-        <li><Link to='/login'>Login</Link></li>
-        <li> <button className=' btn-outline' onClick={handleLogut}>Logout</button> </li>
+        {
+            user && <>
+                <li><Link to='/classes'>Dashboard</Link></li>
+                <div className="avatar">
+                    <div className="w-20 rounded-full">
+                        <img src={user?.photoURL}/>
+                    </div>
+                </div>
+            </>
+        }
+        {
+            user ?<>
+            <li> <button className=' btn-outline' onClick={handleLogut}>Logout</button> </li>
+            </>:<>
+            <li><Link to='/login'>Login</Link></li>
+            </>
+        }
     </>
     return (
         <div className="navbar bg-base-100">
@@ -30,10 +45,10 @@ const Nabvar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal text-2xl px-1">
-                   {items}
+                    {items}
                 </ul>
             </div>
-            
+
         </div>
     );
 };

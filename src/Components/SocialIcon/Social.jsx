@@ -1,14 +1,17 @@
 import { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContex } from "../../Providers/AuthProvider";
+import { useNavigate } from "react-router-dom";
 const Social = () => {
     const {googleSign} = useContext(AuthContex);
+    const navigate = useNavigate();
     
     // googleSign
     const handleGoogle=()=>{
         googleSign()
         .then(data=>{
             console.log(data.user);
+            navigate('/')
         })
         .catch(error=>{
             console.log(error);

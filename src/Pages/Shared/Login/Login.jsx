@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import Social from "../../../Components/SocialIcon/Social";
 
 
 const Login = () => {
@@ -74,6 +75,7 @@ const Login = () => {
                         <input className="btn btn-primary" type="submit" value="Login" />
 
                     </form>
+                    <Social></Social>
                     {
                         MyError && <p className="text-red-600">{MyError}</p>
                     }
