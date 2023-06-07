@@ -16,7 +16,7 @@ const Nabvar = () => {
             user && <>
                 <li><Link to='/classes'>Dashboard</Link></li>
                 <div className="avatar">
-                    <div className="w-20 rounded-full">
+                    <div className="w-9 rounded-full">
                         <img src={user?.photoURL}/>
                     </div>
                 </div>
@@ -31,7 +31,7 @@ const Nabvar = () => {
         }
     </>
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-200 shadow-lg">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -41,10 +41,10 @@ const Nabvar = () => {
                         {items}
                     </ul>
                 </div>
-                <a className=" normal-case text-3xl font-semibold">Language <span className='text-yellow-400'>School</span> </a>
+                <a className=" normal-case text-2xl font-semibold">Language <span className='text-yellow-400'>School</span> </a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal text-2xl px-1">
+                <ul className="menu menu-horizontal text-xl px-1">
                     {items}
                 </ul>
             </div>
