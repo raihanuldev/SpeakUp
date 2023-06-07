@@ -29,7 +29,7 @@ const Footer = () => {
             <div>
                 <span className="footer-title">Find Us</span>
                 <address>HeadOffice:Dhaka Bangladesh</address> 
-                <address>Brance:Cox's Bazar Bangladesh</address> 
+                <address>Brance:Coxs Bazar Bangladesh</address> 
                 <p>Phone:12345678</p>
                 <p>Email: SpeakUp@gmail.com</p>
                 <p>2023 All Right Reversed By SpeakUp Language</p>
