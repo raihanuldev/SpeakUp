@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContex } from '../../Providers/AuthProvider';
 
 const Nabvar = () => {
+    const {logout} = useContext(AuthContex);
+    const handleLogut =()=>{
+        logout()
+    }
     const items = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/instructors'>Instructors</Link></li>
         <li><Link to='/classes'>Classes</Link></li>
         <li><Link to='/classes'>Dashboard</Link></li>
         <li><Link to='/login'>Login</Link></li>
+        <li> <button className=' btn-outline' onClick={handleLogut}>Logout</button> </li>
     </>
     return (
         <div className="navbar bg-base-100">

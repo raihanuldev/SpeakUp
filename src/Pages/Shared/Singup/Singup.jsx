@@ -1,11 +1,35 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Social from "../../../Components/SocialIcon/Social";
+import { useContext } from "react";
+import { AuthContex } from "../../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Singup = () => {
+    const navigate = useNavigate();
+    const { createUser, userProfileUpdate } = useContext(AuthContex)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        console.log(data)
+        createUser(data.email, data.password)
+            .then(result => {
+                userProfileUpdate(data.name, data.photo)
+                    .then(() => {
+                        const user = { name: data.name, email: data.email }
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Account Created Successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        navigate('/')
+                    })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    };
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
@@ -19,13 +43,13 @@ const Singup = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input {...register("name",{ required: true })} type="text" placeholder="Name" className="input input-bordered" />
+                            <input {...register("name", { required: true })} type="text" placeholder="Name" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Photo Url</span>
                             </label>
-                            <input {...register("photo",{ required: true })} type="text" placeholder="Paste URL" className="input input-bordered" />
+                            <input {...register("photo", { required: true })} type="text" placeholder="Paste URL" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
