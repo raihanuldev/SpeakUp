@@ -1,15 +1,38 @@
-import {useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContex } from "../../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
+    const navigate = useNavigate();
+    const [MyError, setError] = useState('')
+    const { LoginUser } = useContext(AuthContex);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [showPassword, setShowPassword] = useState(false);
     const handleshowPassword = () => {
         setShowPassword(!showPassword)
     }
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        setError('')
+        console.log(data);
+        LoginUser(data.email, data.password)
+            .then(() => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Login Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                navigate('/')
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+
+    };
 
 
 
@@ -26,13 +49,13 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input {...register("email")} type="text" placeholder="email" className="input input-bordered" />
+                            <input {...register("email",{required:true})} type="text" placeholder="email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input {...register("password")} type={showPassword ? 'text' : 'password'} placeholder="password" className="input input-bordered" />
+                            <input {...register("password",{required:true})} type={showPassword ? 'text' : 'password'} placeholder="password" className="input input-bordered" />
                             <span
                                 onClick={handleshowPassword}
                                 className="toggle-icon"
@@ -51,6 +74,9 @@ const Login = () => {
                         <input className="btn btn-primary" type="submit" value="Login" />
 
                     </form>
+                    {
+                        MyError && <p className="text-red-600">{MyError}</p>
+                    }
                 </div>
             </div>
         </div>
