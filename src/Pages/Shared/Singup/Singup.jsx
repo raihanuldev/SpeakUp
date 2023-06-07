@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import Social from "../../../Components/SocialIcon/Social";
 
 const Singup = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -61,21 +62,22 @@ const Singup = () => {
                             <input {...register('confirmPassword', {
                                 required: true,
                                 validate: (value) => value === watch('password') || 'Passwords do not match',
-                            })} placeholder="password" className="input input-bordered" />
+                            })} placeholder="Confirm password" className="input input-bordered" />
                             {errors.confirmPassword && <span>{errors.confirmPassword.message}</span>}
 
                             <div className="flex justify-between">
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <a href="#" className="label-text-alt link link-hover">Terms & Condition</a>
                                 </label>
                                 <label className="label">
-                                    <Link to='/singup' className="label-text-alt link link-hover">Are You New? Singup</Link>
+                                    <Link to='/login' className="label-text-alt link link-hover">Alredy An Account? Login</Link>
                                 </label>
                             </div>
                         </div>
                         <input className="btn btn-primary" type="submit" value="SIngUp" />
 
                     </form>
+                    <Social></Social>
                 </div>
             </div>
         </div>
