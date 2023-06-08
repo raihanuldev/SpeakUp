@@ -83,6 +83,7 @@ const Singup = () => {
                                 validate: (value) => value === watch('password') || 'Passwords do not match',
                             })} placeholder="Confirm password" className="input input-bordered" />
                             {errors.confirmPassword && <span>{errors.confirmPassword.message}</span>}
+                            {errors.required && <span>Confirm Password Required</span>}
 
                             <div className="flex justify-between">
                                 <label className="label">
