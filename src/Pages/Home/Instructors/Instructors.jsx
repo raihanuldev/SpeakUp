@@ -11,7 +11,7 @@ const Instructors = () => {
             return res.json();
         }
     })
-    console.log(instructors);
+    // console.log(instructors);
 
     return (
         <div>

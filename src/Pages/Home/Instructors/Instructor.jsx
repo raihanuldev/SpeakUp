@@ -10,7 +10,7 @@ const Instructor = ({instructor}) => {
                 <p className="text-1xl font-semibold flex"> <FaUser></FaUser> Instructor Id: {instructor._id}</p>
                 <p className="text-2xl font-semibold flex"><FaUsers></FaUsers>Total Student: {instructor.totalEnrollments}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button className="btn btn-primary">View Details</button>
                 </div>
             </div>
         </div>

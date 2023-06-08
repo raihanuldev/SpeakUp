@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import RowIns from "./RowIns";
+import { useQuery } from "@tanstack/react-query";
 
 const Instructors = () => {
-    const [instructors, setInstructor] = useState([])
-    useEffect(() => {
-        fetch('http://localhost:5000/instructors')
-            .then(res => res.json())
-            .then(data => setInstructor(data))
-    }, [])
+    // const [instructors, setInstructor] = useState([])
+    const { data: instructor = [] } = useQuery({
+        queryKey:'instructor',
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/instructors')
+            return res.json();
+        }
+    })
     return (
         <div className="overflow-x-auto">
             <table className="table">
@@ -26,7 +29,7 @@ const Instructors = () => {
                 <tbody>
                     {/* row 1 */}
                     {
-                        instructors.map((row, index) => <RowIns key={row._id} row={row} index={index}></RowIns> )
+                        instructor.map((row, index) => <RowIns key={row._id} row={row} index={index}></RowIns> )
                     }
                 </tbody>
 
