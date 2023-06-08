@@ -6,6 +6,7 @@ const Instructors = () => {
     // const [Instructors,setInstructor] = useState([])
 
     const { data: instructors = [] } = useQuery({
+        queryKey:'instructors',
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/topinstructor')
             return res.json();

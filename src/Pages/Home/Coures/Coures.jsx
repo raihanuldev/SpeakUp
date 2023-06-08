@@ -22,6 +22,7 @@ const Coures = () => {
                             <figure><img src={object.image} alt="Shoes" /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{object.name}</h2>
+                                <p className='text-1xl font-semibold'>Price:{object.price}</p>
                                 <p className='text-1xl'>Available Seats: {object.availableSeats}</p>
                                 <p className='flex space-x-3 text-xl font-semibold'> <HiOutlineBookOpen></HiOutlineBookOpen> <span> Total Enrolled: {object.enrolled}</span> </p>
                                 <Rating
@@ -32,7 +33,7 @@ const Coures = () => {
                                 />
                                 <p className='text-1xl font-semibold'>Instructor Name: {object.instructorName}</p>
                                 <div className="card-actions justify-end">
-                                    <button className="btn btn-primary">Select</button>
+                                    <button disabled={object.availableSeats===0} className="btn btn-primary">Select</button>
                                 </div>
                             </div>
                         </div>

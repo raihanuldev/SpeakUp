@@ -5,6 +5,7 @@ import Login from "../Pages/Shared/Login/Login";
 import Singup from "../Pages/Shared/Singup/Singup";
 import ErrorPage from "../Components/Error/ErrorPage";
 import Instructors from "../Pages/Instructors/Instructors";
+import Classes from "../Pages/Classes/Classes";
 
 export const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
             {
                 path:'/instructors',
                 element: <Instructors></Instructors>
+            },
+            {
+                path:'/classes',
+                element: <Classes></Classes>
             }
         ]
 
