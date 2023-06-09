@@ -7,6 +7,7 @@ import ErrorPage from "../Components/Error/ErrorPage";
 import Instructors from "../Pages/Instructors/Instructors";
 import Classes from "../Pages/Classes/Classes";
 import Dashbord from "../Layouts/Dashbord";
+import AddClass from "../Dashbord/AddClass/AddClass";
 
 export const router = createBrowserRouter([
     {
@@ -39,6 +40,12 @@ export const router = createBrowserRouter([
     },
     {
         path:'/dashbord',
-        element: <Dashbord></Dashbord>
+        element: <Dashbord></Dashbord>,
+        children:[
+            {
+                path:'addnew',
+                element: <AddClass></AddClass>
+            }
+        ]
     }
 ])
