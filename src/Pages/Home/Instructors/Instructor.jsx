@@ -1,7 +1,7 @@
 import {FaUsers,FaUser} from 'react-icons/fa';
 
 const Instructor = ({instructor}) => {
-    console.log(instructor.instructorName[0].instructor);
+    // console.log(instructor.instructorName[0].instructor);
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
             <figure><img src={instructor.instructorImage[0].image} alt="Instructor Image" /></figure>

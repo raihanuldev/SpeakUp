@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContex } from "../../Providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 const Social = () => {
     const [erros,setError] = useState('');
     const {googleSign} = useContext(AuthContex);
@@ -14,8 +15,27 @@ const Social = () => {
             console.log(data.user);
             setError('')
             const loggedUser=data.user;
-            // const user = {name: loggedUser.displayName,email: loggedUser.email,role:"student"}
-            // console.log(user);
+            const user = {name: loggedUser.displayName,email: loggedUser.email,role:"student"}
+            fetch('http://localhost:5000/users',{
+                method: 'POST',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(user)
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log((data));
+                if(data.insertedId){
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Successfully SingIn WIth Google',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
 
             navigate('/')
         })

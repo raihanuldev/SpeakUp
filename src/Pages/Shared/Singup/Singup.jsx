@@ -14,16 +14,17 @@ const Singup = () => {
         console.log(data)
         createUser(data.email, data.password)
             .then(result => {
+                console.log(result.user);
                 userProfileUpdate(data.name, data.photo)
                     .then(() => {
-                        const user = { name: data.name, email: data.email, role: 'student' }
+                        const user = { name: data.name, email: data.email,role:'student' }
                         console.log(user);
-                        fetch('http://localhost:5000/users', {
-                            method: 'post',
-                            headers: {
-                                'content-type': 'application/json'
+                        fetch('http://localhost:5000/users',{
+                            method:'post',
+                            headers:{
+                                'content-type':'application/json'
                             },
-                            body: JSON.stringify(user)
+                            body:JSON.stringify(user)   
                         })
                             .then(res => res.json())
                             .then(data => {
@@ -31,7 +32,7 @@ const Singup = () => {
                                     Swal.fire({
                                         position: 'top-end',
                                         icon: 'success',
-                                        title: 'Account Created Successfully',
+                                        title: 'SingUp Successfully',
                                         showConfirmButton: false,
                                         timer: 1500
                                     })
