@@ -33,7 +33,7 @@ const Dashbord = () => {
                     {
                         IsInstructor && <>
                             <li><Link to='/dashbord/addnew' className="text-2xl mt-2"> <HiDocumentAdd></HiDocumentAdd> Add A Class</Link> </li>
-                            <li><Link className="text-2xl mt-2"> <HiOutlineBookOpen></HiOutlineBookOpen>MY Classes </Link> </li>
+                            <li><Link to='/dashbord/myclasses' className="text-2xl mt-2"> <HiOutlineBookOpen></HiOutlineBookOpen>MY Classes </Link> </li>
                         </>
                     }
 
