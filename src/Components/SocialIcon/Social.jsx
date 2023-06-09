@@ -1,8 +1,9 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContex } from "../../Providers/AuthProvider";
 import { useNavigate } from "react-router-dom";
 const Social = () => {
+    const [erros,setError] = useState('');
     const {googleSign} = useContext(AuthContex);
     const navigate = useNavigate();
     
@@ -11,10 +12,16 @@ const Social = () => {
         googleSign()
         .then(data=>{
             console.log(data.user);
+            setError('')
+            const loggedUser=data.user;
+            // const user = {name: loggedUser.displayName,email: loggedUser.email,role:"student"}
+            // console.log(user);
+
             navigate('/')
         })
         .catch(error=>{
             console.log(error);
+            setError(error.message)
         })
     }
     return (
@@ -25,6 +32,9 @@ const Social = () => {
                     <FaGoogle></FaGoogle>
                 </button>
             </div>
+            {
+                erros && <p className="text-red-600">{erros}</p>
+            }
         </div>
     );
 };

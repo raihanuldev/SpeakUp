@@ -1,11 +1,12 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Social from "../../../Components/SocialIcon/Social";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContex } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const Singup = () => {
+    const [erros,setError]= useState('');
     const navigate = useNavigate();
     const { createUser, userProfileUpdate } = useContext(AuthContex)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -15,19 +16,34 @@ const Singup = () => {
             .then(result => {
                 userProfileUpdate(data.name, data.photo)
                     .then(() => {
-                        const user = { name: data.name, email: data.email }
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Account Created Successfully',
-                            showConfirmButton: false,
-                            timer: 1500
+                        const user = { name: data.name, email: data.email, role: 'student' }
+                        console.log(user);
+                        fetch('http://localhost:5000/users', {
+                            method: 'post',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(user)
                         })
-                        navigate('/')
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'Account Created Successfully',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    })
+                                    navigate('/')
+                                }
+                            })
+
                     })
             })
             .catch(error => {
                 console.log(error);
+                setError(error.message)
             })
     };
     return (
@@ -98,6 +114,9 @@ const Singup = () => {
 
                     </form>
                     <Social></Social>
+                    {
+                        erros && <p className="text-red-600">{erros}</p>
+                    }
                 </div>
             </div>
         </div>
