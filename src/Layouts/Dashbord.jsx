@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { AuthContex } from "../Providers/AuthProvider";
 import { Link, Outlet } from "react-router-dom";
 import { HiBadgeCheck, HiDocumentAdd, HiOutlineBookOpen, HiOutlineCollection, HiOutlineCurrencyDollar, HiOutlineHome, HiOutlineViewList, HiQuestionMarkCircle, HiShoppingCart, HiUserGroup } from 'react-icons/hi'
 
