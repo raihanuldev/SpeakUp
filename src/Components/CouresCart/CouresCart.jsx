@@ -49,6 +49,15 @@ const CouresCart = ({ object }) => {
                         timer: 2500
                       })
                 }
+                else{
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Coures Was Added!!',
+                        showConfirmButton: false,
+                        timer: 2500
+                      })
+                }
             })
             .catch(error=>{
                 console.log(error);

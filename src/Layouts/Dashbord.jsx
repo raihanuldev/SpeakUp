@@ -41,7 +41,7 @@ const Dashbord = () => {
                     <p className="uppercase text-3xl font-semibold" >SpeakUp Dashboard !!</p>
                     {/* Student Role Pages */}
                     {IsStudent && <>
-                        <li><Link className="text-2xl mt-2"> <HiShoppingCart></HiShoppingCart> MY Selected Classes</Link> </li>
+                        <li><Link to='/dashbord/mycart' className="text-2xl mt-2"> <HiShoppingCart></HiShoppingCart> MY Selected Classes</Link> </li>
                         <li><Link className="text-2xl mt-2"> <HiBadgeCheck></HiBadgeCheck> My Enrolled Classes</Link> </li>
                         <li><Link className="text-2xl mt-2"> <HiOutlineCurrencyDollar></HiOutlineCurrencyDollar>Payment History</Link> </li>
                     </>}

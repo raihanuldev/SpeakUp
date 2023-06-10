@@ -10,6 +10,7 @@ import Dashbord from "../Layouts/Dashbord";
 import AddClass from "../Dashbord/AddClass/AddClass";
 import MyClasses from "../Dashbord/MyClasses/MyClasses";
 import PrivateRoute from "./PrivateRoute";
+import MySelectedClass from "../Dashbord/MySelectedClass/MySelectedClass";
 
 export const router = createBrowserRouter([
     {
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
             {
                 path:'myclasses',
                 element: <MyClasses></MyClasses>
+            },
+            {
+                path:'mycart',
+                element: <MySelectedClass></MySelectedClass>
             }
         ]
     }
