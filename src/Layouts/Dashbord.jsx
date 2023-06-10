@@ -1,12 +1,31 @@
 import { Link, Outlet } from "react-router-dom";
 import { HiBadgeCheck, HiDocumentAdd, HiOutlineBookOpen, HiOutlineCollection, HiOutlineCurrencyDollar, HiOutlineHome, HiOutlineViewList, HiQuestionMarkCircle, HiShoppingCart, HiUserGroup } from 'react-icons/hi'
+import UserRole from "../Hooks/UserRole";
+import { useState } from "react";
+import { useEffect } from "react";
 
 // At Frist fault in the condition all Sidebar then fetch users.
 
 const Dashbord = () => {
-    const IsAdmin = false;
-    const IsStudent = false;
-    const IsInstructor = true;
+    const [IsAdmin,setAdmin] = useState(false)
+    const [IsInstructor,setInstructor] = useState(false);
+    const [IsStudent,setStudent] = useState(false)
+
+    const [dataUser,isLoading] = UserRole();
+    
+    useEffect(()=>{
+        
+        if(dataUser?.role === 'student') {
+            setStudent(true);
+        }
+        else if(dataUser?.role === 'instructor') {
+            setInstructor(true);
+        }
+        else if(dataUser?.role === 'admin') {
+            setAdmin(true);
+        }
+    },[dataUser,isLoading]);
+
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
