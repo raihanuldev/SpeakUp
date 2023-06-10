@@ -6,7 +6,6 @@ import { HiBadgeCheck, HiDocumentAdd, HiOutlineBookOpen, HiOutlineCollection, Hi
 // At Frist fault in the condition all Sidebar then fetch users.
 
 const Dashbord = () => {
-    const { user } = useContext(AuthContex)
     const IsAdmin = false;
     const IsStudent = false;
     const IsInstructor = true;

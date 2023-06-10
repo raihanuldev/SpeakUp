@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import Social from "../../../Components/SocialIcon/Social";
@@ -8,6 +8,8 @@ import Social from "../../../Components/SocialIcon/Social";
 
 const Login = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const [MyError, setError] = useState('')
     const { LoginUser } = useContext(AuthContex);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -27,7 +29,7 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
-                navigate('/')
+                navigate(from,{replace:true})
             })
             .catch(error => {
                 setError(error.message)
