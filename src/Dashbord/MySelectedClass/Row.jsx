@@ -1,8 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Row = ({ row, index }) => {
-    
+    const navigate = useNavigate()
+    const handlePayNow = ()=>{
+        localStorage.setItem('row',JSON.stringify(row))
+        navigate('/dashbord/payment', {state:row})
+    }
+
     return (
         <tr>
             <th>
@@ -28,7 +33,7 @@ const Row = ({ row, index }) => {
                 <button className='btn btn-ghost '>Remove</button>
             </td>
             <th>
-                <Link to='/dashbord/payment'><button className="btn btn-ghost">Pay Now</button></Link>
+                <Link to={{ pathname: '/dashbord/payment', state: { row } }}><button onClick={handlePayNow} className="btn btn-ghost">Pay Now</button></Link>
             </th>
         </tr>
     );
