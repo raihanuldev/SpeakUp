@@ -18,7 +18,7 @@ const Payment = () => {
         }
     },[])
     const price = row?.price;
-    // console.log(price);
+    
     return (
         <div>
             <h3 className="text-center text-3xl font-semibold">Please Procced to Chekout</h3>

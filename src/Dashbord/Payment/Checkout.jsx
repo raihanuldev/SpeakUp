@@ -2,13 +2,13 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { AuthContex } from '../../Providers/AuthProvider'
-const Checkout = ({ price }) => {
+const Checkout = ({ price,cartId }) => {
     const [clientSecret, setClientSecret] = useState('')
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('')
     const { user } = useContext(AuthContex)
-    
+    const [transaction,setTransaction] = useState('');
 
     useEffect(() => {
         if (price) {
@@ -66,6 +66,26 @@ const Checkout = ({ price }) => {
             setCardError(confirmError.message)
         }
         console.log(paymentIntent);
+        if(paymentIntent.status ==='succeeded'){
+            setTransaction(paymentIntent.id);
+            const payment = {
+                email: user?.email,
+                transaction: paymentIntent.id,
+                // couresId:cartId
+            }
+            console.log(payment);
+            // fetch('http://localhost:5000/payments', {
+            //     method: 'POST',
+            //     headers: {
+            //         'content-type':'application/json'
+            //     },
+            //     body: JSON.stringify(payment)
+            // })
+            // .then(res=>res.json())
+            // .then(data=>{
+            //     console.log(data);
+            // })
+        }
 
     }
     return (
@@ -91,7 +111,8 @@ const Checkout = ({ price }) => {
                     Pay
                 </button>
             </form>
-            {cardError && <p>{cardError}</p>}
+            {cardError && <p className='text-red-600'>{cardError}</p>}
+            {transaction && <p className='text-green-600'>Transaction Completed with Transaction Id : <span className='font-semibold text-1xl'>{transaction}</span></p>}
         </>
 
     );
