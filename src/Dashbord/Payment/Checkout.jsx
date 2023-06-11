@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { AuthContex } from '../../Providers/AuthProvider'
+import Swal from 'sweetalert2';
 const Checkout = ({ price,cartId }) => {
     const [clientSecret, setClientSecret] = useState('')
     const stripe = useStripe();
@@ -74,17 +75,27 @@ const Checkout = ({ price,cartId }) => {
                 couresId: price?.cartId
             }
             console.log(payment);
-            // fetch('http://localhost:5000/payments', {
-            //     method: 'POST',
-            //     headers: {
-            //         'content-type':'application/json'
-            //     },
-            //     body: JSON.stringify(payment)
-            // })
-            // .then(res=>res.json())
-            // .then(data=>{
-            //     console.log(data);
-            // })
+            fetch('http://localhost:5000/payments', {
+                method: 'POST',
+                headers: {
+                    'content-type':'application/json'
+                },
+                body: JSON.stringify(payment)
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                // console.log(data);
+                if(data.insertedId){
+                    
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Successfully Enrolled The Class!',
+                        showConfirmButton: false,
+                        timer: 2500
+                    })
+                }
+            })
         }
 
     }
