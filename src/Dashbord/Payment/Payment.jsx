@@ -25,7 +25,7 @@ const Payment = () => {
 
             <div className='mx-12 px-12'>
                 <Elements stripe={stripePromis}>
-                    <Checkout price={row?.price}></Checkout>
+                    <Checkout price={row}></Checkout>
                 </Elements>
             </div>
         </div>

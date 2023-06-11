@@ -17,7 +17,7 @@ const Checkout = ({ price,cartId }) => {
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify({ price: price })
+                body: JSON.stringify({ price: price?.price })
             })
                 .then(res => res.json())
                 .then(data => {
@@ -71,7 +71,7 @@ const Checkout = ({ price,cartId }) => {
             const payment = {
                 email: user?.email,
                 transaction: paymentIntent.id,
-                // couresId:cartId
+                couresId: price?.cartId
             }
             console.log(payment);
             // fetch('http://localhost:5000/payments', {
