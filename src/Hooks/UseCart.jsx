@@ -7,10 +7,19 @@ const UseCart = () => {
 
     const {data:cart=[],refetch,isLoading} = useQuery({
         queryKey: [ 'cart',user?.email],
-        queryFn: async()=>{
-            const res = await fetch(`http://localhost:5000/carts?email=${user?.email}`)
-            return res.json();
-        }
+        queryFn: async () => {
+            try {
+              const res = await fetch(`http://localhost:5000/carts?email=${user?.email}`);
+              if (!res.ok) {
+                throw new Error('Failed to fetch cart data');
+              }
+              const data = await res.json();
+              return data;
+            } catch (error) {
+              console.error(error);
+              throw error; // Rethrow the error to let react-query handle it
+            }
+          }
     })
     return [cart,refetch, isLoading]
 };

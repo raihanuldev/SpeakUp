@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { AuthContex } from '../../Providers/AuthProvider'
 import Swal from 'sweetalert2';
 import UseCart from '../../Hooks/UseCart'
-import './common.css'
+
 
 const Checkout = ({ price,cartId }) => {
     const [clientSecret, setClientSecret] = useState('')
