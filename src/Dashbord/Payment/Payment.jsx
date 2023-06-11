@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 const stripePromis = loadStripe(import.meta.env.VITE_PK)
 const Payment = () => {
     const location = useLocation();
-    const [row,setRow] = useState(null ||{})
+    const [row,setRow] = useState(null)
 
     useEffect(()=>{
         const storedRow = localStorage.getItem('row');
@@ -16,17 +16,16 @@ const Payment = () => {
             setRow(JSON.parse(storedRow));
             localStorage.removeItem('row')
         }
-    },[row])
-    
-    const {price} =row;
-    console.log(price);
+    },[])
+    const price = row?.price;
+    // console.log(price);
     return (
         <div>
             <h3 className="text-center text-3xl font-semibold">Please Procced to Chekout</h3>
 
             <div className='mx-12 px-12'>
                 <Elements stripe={stripePromis}>
-                    <Checkout></Checkout>
+                    <Checkout price={row?.price}></Checkout>
                 </Elements>
             </div>
         </div>
