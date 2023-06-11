@@ -11,6 +11,7 @@ import AddClass from "../Dashbord/AddClass/AddClass";
 import MyClasses from "../Dashbord/MyClasses/MyClasses";
 import PrivateRoute from "./PrivateRoute";
 import MySelectedClass from "../Dashbord/MySelectedClass/MySelectedClass";
+import Payment from "../Dashbord/Payment/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -56,6 +57,10 @@ export const router = createBrowserRouter([
             {
                 path:'mycart',
                 element: <MySelectedClass></MySelectedClass>
+            },
+            {
+                path:'payment',
+                element: <Payment></Payment>
             }
         ]
     }

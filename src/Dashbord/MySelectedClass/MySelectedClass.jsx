@@ -5,6 +5,7 @@ import Row from './Row';
 const MySelectedClass = () => {
     const [cart] = UseCart();
     console.log(cart);
+    
     return (
         <div>
             <h2 className="text-center font-semibold text-4xl">MY SELECTED CLASSES</h2>
@@ -15,9 +16,7 @@ const MySelectedClass = () => {
                     <thead>
                         <tr>
                             <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
+                                #
                             </th>
                             <th>Name</th>
                             <th>Price</th>
