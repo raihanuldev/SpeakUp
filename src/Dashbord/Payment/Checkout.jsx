@@ -3,6 +3,9 @@ import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { AuthContex } from '../../Providers/AuthProvider'
 import Swal from 'sweetalert2';
+import UseCart from '../../Hooks/UseCart'
+import './common.css'
+
 const Checkout = ({ price,cartId }) => {
     const [clientSecret, setClientSecret] = useState('')
     const stripe = useStripe();
@@ -10,6 +13,7 @@ const Checkout = ({ price,cartId }) => {
     const [cardError, setCardError] = useState('')
     const { user } = useContext(AuthContex)
     const [transaction,setTransaction] = useState('');
+    const [cart,refetch] = UseCart();
 
     useEffect(() => {
         if (price) {
@@ -72,7 +76,8 @@ const Checkout = ({ price,cartId }) => {
             const payment = {
                 email: user?.email,
                 transaction: paymentIntent.id,
-                couresId: price?.cartId
+                couresId: price?.cartId,
+                date: new Date().toISOString()
             }
             console.log(payment);
             fetch('http://localhost:5000/payments', {
@@ -85,6 +90,7 @@ const Checkout = ({ price,cartId }) => {
             .then(res=>res.json())
             .then(data=>{
                 // console.log(data);
+                
                 if(data.insertedId){
                     
                     Swal.fire({

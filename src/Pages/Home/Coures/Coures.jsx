@@ -15,7 +15,7 @@ const Coures = () => {
             <h2 className='text-center text-4xl font-semibold'>Our Tranding Course</h2>
             <div className='grid md:grid-cols-3 space-y-7'>
                 {
-                    coures.map(object => <CouresCart object={object} key={object._id}></CouresCart>)
+                    coures.map(object => <CouresCart object={object} key={object._id} ></CouresCart>)
                 }
             </div>
         </div>

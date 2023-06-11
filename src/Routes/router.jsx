@@ -12,6 +12,7 @@ import MyClasses from "../Dashbord/MyClasses/MyClasses";
 import PrivateRoute from "./PrivateRoute";
 import MySelectedClass from "../Dashbord/MySelectedClass/MySelectedClass";
 import Payment from "../Dashbord/Payment/Payment";
+import EnrolledClass from "../Dashbord/EnrolledClasses/EnrolledClass";
 
 export const router = createBrowserRouter([
     {
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
             {
                 path:'payment',
                 element: <Payment></Payment>
+            },
+            {
+                path:'enrolled-class',
+                element: <EnrolledClass></EnrolledClass>
             }
         ]
     }
