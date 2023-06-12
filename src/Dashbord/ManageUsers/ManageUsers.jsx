@@ -1,18 +1,20 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Users from "./Users";
+import UseUsersMange from "../../Hooks/UseUsersMange";
 
 const ManageUsers = () => {
-    const [allusers, setAllusers] = useState([])
+    // const [allusers, setAllusers] = useState([])
 
-    useEffect(() => {
-        fetch('http://localhost:5000/all-users')
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                setAllusers(data)
-            })
-    }, [])
+    const [users] = UseUsersMange();
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/all-users')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data);
+    //             setAllusers(data)
+    //         })
+    // }, [])
 
     return (
         <div>
@@ -33,7 +35,7 @@ const ManageUsers = () => {
                     </thead>
                     <tbody>
                         {
-                            allusers.map((user,index)=> <Users key={user._id} index={index} user={user}></Users>)
+                            users.map((user,index)=> <Users key={user._id} index={index} user={user}></Users>)
                         }
                     </tbody>
                 </table>
