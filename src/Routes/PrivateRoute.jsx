@@ -6,8 +6,8 @@ const PrivateRoute = ({children}) => {
     const {user,loading} = useContext(AuthContex);
     const location = useLocation();
     if(loading){
-        // TODO: UPDATE SPINNER
-        return <div>Loading.............</div>
+        // TODO: UPDATEed SPINNER
+        return <span className="loading loading-spinner loading-lg"></span>
     }
     if(user){
         return children;

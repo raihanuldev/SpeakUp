@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContex } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import Social from "../../../Components/SocialIcon/Social";
+import { FaBullseye } from "react-icons/fa";
 
 
 const Login = () => {
@@ -29,7 +30,7 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
-                navigate(from,{replace:true})
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message)
@@ -52,19 +53,21 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input {...register("email",{required:true})} type="text" placeholder="email" className="input input-bordered" />
+                            <input {...register("email", { required: true })} type="text" placeholder="email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input {...register("password",{required:true})} type={showPassword ? 'text' : 'password'} placeholder="password" className="input input-bordered" />
-                            <span
-                                onClick={handleshowPassword}
-                                className="toggle-icon"
-                            >
-                                {showPassword ? 'Hide Password' : 'Show Password'}
-                            </span>
+                            <div className="flex">
+                                <input  {...register("password", { required: true })} type={showPassword ? 'text' : 'password'} placeholder="password" className="input input-bordered" />
+                                <span
+                                    onClick={handleshowPassword}
+                                    className="toggle-icon"
+                                >
+                                    {showPassword ? <FaBullseye></FaBullseye> : <FaBullseye></FaBullseye>}
+                                </span>
+                            </div>
                             <div className="flex justify-between">
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
