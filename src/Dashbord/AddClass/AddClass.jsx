@@ -10,7 +10,7 @@ const AddClass = () => {
     const onSubmit = (data) => {
         const {name,price,image,availableSeats,details,instructorName,instructorEmail} = data;
         // console.log(name,price,image,availableSeats);
-        const item ={name:name,price:price,image:image,availableSeats:availableSeats,details:details,instructorEmail:instructorEmail,instructorImage:user?.photoURL,instructorName:instructorName,status:"pending"}
+        const item ={name:name,price:price,image:image,availableSeats:availableSeats,details:details,instructorEmail:instructorEmail,instructorImage:user?.photoURL,instructorName:instructorName,status:"pending", enrolled:0}
         console.log(item);
         fetch('http://localhost:5000/newclass',{
             method: 'POST',
