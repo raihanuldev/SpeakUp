@@ -5,9 +5,13 @@ import { AuthContex } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import Social from "../../../Components/SocialIcon/Social";
 import { FaBullseye } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
+    <Helmet>
+        <title>Login || SpeakUp</title>
+    </Helmet>
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';

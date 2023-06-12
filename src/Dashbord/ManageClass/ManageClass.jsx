@@ -1,7 +1,11 @@
+import { Helmet } from "react-helmet-async";
 import UseManageClass from "../../Hooks/UseManageClass";
 import ManageClassRow from "./ManageClassRow";
 
 const ManageClass = () => {
+    <Helmet>
+        <title>MANAGE CLASS || SpeakUp</title>
+    </Helmet>
     const [classes] = UseManageClass();
     return (
         <div>

@@ -2,8 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContex } from '../../Providers/AuthProvider';
 import CouresCart from '../../Components/CouresCart/CouresCart';
 import Item from './item';
+import { Helmet } from 'react-helmet-async';
 
 const EnrolledClass = () => {
+    <Helmet>
+        <title>ENROLLED CLASSES || SpeakUp</title>
+    </Helmet>
     const [enrolled, setEnrolled] = useState(null || [])
     const { user } = useContext(AuthContex);
 

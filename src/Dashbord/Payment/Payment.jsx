@@ -4,9 +4,13 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const stripePromis = loadStripe(import.meta.env.VITE_PK)
 const Payment = () => {
+    <Helmet>
+        <title>Pay Now || SpeakUp</title>
+    </Helmet>
     const location = useLocation();
     const [row,setRow] = useState(null)
 

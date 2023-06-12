@@ -2,8 +2,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Users from "./Users";
 import UseUsersMange from "../../Hooks/UseUsersMange";
+import { Helmet } from "react-helmet-async";
 
 const ManageUsers = () => {
+    <Helmet>
+        <title>MANAGE USER || SpeakUp</title>
+    </Helmet>
     // const [allusers, setAllusers] = useState([])
 
     const [users] = UseUsersMange();

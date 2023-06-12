@@ -3,10 +3,14 @@ import { HiBadgeCheck, HiDocumentAdd, HiOutlineBookOpen, HiOutlineCollection, Hi
 import UserRole from "../Hooks/UserRole";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 // At Frist fault in the condition all Sidebar then fetch users.
 
 const Dashbord = () => {
+    <Helmet>
+        <title>Dashbord || SpeakUp</title>
+    </Helmet>
     const [IsAdmin,setAdmin] = useState(false)
     const [IsInstructor,setInstructor] = useState(false);
     const [IsStudent,setStudent] = useState(false)

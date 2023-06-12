@@ -4,8 +4,12 @@ import Social from "../../../Components/SocialIcon/Social";
 import { useContext, useState } from "react";
 import { AuthContex } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Singup = () => {
+    <Helmet>
+        <title>SINGUP || SPEAKUP</title>
+    </Helmet>
     const [erros,setError]= useState('');
     const navigate = useNavigate();
     const { createUser, userProfileUpdate } = useContext(AuthContex)

@@ -1,8 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContex } from "../../Providers/AuthProvider";
 import ClassesRow from "./ClassesRow";
+import { Helmet } from "react-helmet-async";
 
 const MyClasses = () => {
+    <Helmet>
+        <title>
+            My Classes || SpeakUp
+        </title>
+    </Helmet>
     const { user } = useContext(AuthContex);
     const [MyClasses, setClasses] = useState([]);
 

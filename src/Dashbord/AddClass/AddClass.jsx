@@ -2,8 +2,12 @@ import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContex } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const AddClass = () => {
+    <Helmet>
+        <title>ADD A CLASS || SpeakUp</title>
+    </Helmet>
     const { register, handleSubmit, reset } = useForm();
     const { user } = useContext(AuthContex);
     console.log(user);

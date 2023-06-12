@@ -3,8 +3,12 @@ import { useEffect } from "react";
 import { AuthContex } from '../../Providers/AuthProvider'
 import { useState } from "react";
 import PaymentInfo from "./PaymentInfo";
+import { Helmet } from "react-helmet-async";
 
 const PaymentHistory = () => {
+    <Helmet>
+        <title>Payment HIstory || SpeakUp</title>
+    </Helmet>
     const { user } = useContext(AuthContex);
     const [paymentsData, setPaymentsData] = useState([])
 

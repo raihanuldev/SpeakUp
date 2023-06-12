@@ -1,8 +1,14 @@
 import React from 'react';
 import UseCart from '../../Hooks/UseCart';
 import Row from './Row';
+import { Helmet } from 'react-helmet-async';
 
 const MySelectedClass = () => {
+    <Helmet>
+        <title>
+            My Cart || SpeakUp
+        </title>
+    </Helmet>
     const [cart] = UseCart();
     console.log(cart);
     

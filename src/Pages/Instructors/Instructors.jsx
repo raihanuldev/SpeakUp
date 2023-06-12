@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import RowIns from "./RowIns";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 const Instructors = () => {
+    <Helmet>
+        <title>Instructors || SpeakUp</title>
+    </Helmet>
     // const [instructors, setInstructor] = useState([])
     const { data: instructor = [] } = useQuery({
         queryKey:'instructor',
