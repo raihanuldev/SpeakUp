@@ -38,7 +38,7 @@ const MyClasses = () => {
                     </thead>
                     <tbody>
                        {
-                        MyClasses.map((row,index)=> <ClassesRow key={row._id} object={row} index={index}></ClassesRow>)
+                        MyClasses.map((row,index)=> <ClassesRow key={row._id} row={row} index={index}></ClassesRow>)
                        }
                     </tbody>
                     

@@ -1,8 +1,54 @@
 import Swal from "sweetalert2";
 import UseManageClass from "../../Hooks/UseManageClass";
+import { useState } from "react";
 
 const ManageClassRow = ({ index, item }) => {
     const [classes, refetch] = UseManageClass();
+    
+
+    const handleFeedback = () => {
+        Swal.fire({
+            title: 'Send Feedback',
+            input: 'textarea',
+            inputPlaceholder: 'Enter feedback reason...',
+            showCancelButton: true,
+            confirmButtonText: 'Send',
+            cancelButtonText: 'Cancel',
+            preConfirm: (reason) => {
+              if (reason) {
+                const message = reason;
+                fetch(`http://localhost:5000/feedback/${item._id}`,{
+                    method: 'PUT',
+                    headers: {
+                        'content-type':'application/json'
+                    },
+                    body: JSON.stringify({message})
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    console.log(data);
+                })
+              }
+            },
+          }).then((result) => {
+            if (result.isConfirmed) {
+                
+              refetch();
+              Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Feedback sent successfully',
+                showConfirmButton: false,
+                timer: 1500
+              });
+            }
+          });
+        };
+      
+    
+
+
+
 
     const handleDeny = () => {
         const id = item._id;
@@ -46,6 +92,7 @@ const ManageClassRow = ({ index, item }) => {
                 }
             })
     }
+    
     return (
         <tr>
             <th>
@@ -72,15 +119,15 @@ const ManageClassRow = ({ index, item }) => {
             </td>
             <td>{item.status}</td>
             <td>
-                <button onClick={handleApprove} disabled={item.status === 'approved' || item.status ==='denied'} className="btn btn-outline btn-sm">Approved</button>
+                <button onClick={handleApprove} disabled={item.status === 'approved' || item.status === 'denied'} className="btn btn-outline btn-sm">Approved</button>
             </td>
             <td>
-                <button onClick={handleDeny} disabled={item.status === 'approved' || item.status==='denied'} className="btn btn-outline btn-sm">Deny</button>
+                <button onClick={handleDeny} disabled={item.status === 'approved' || item.status === 'denied'} className="btn btn-outline btn-sm">Deny</button>
             </td>
             <td>
-                <button className="btn btn-outline btn-sm">Feedback</button>
+                <button onClick={handleFeedback} className="btn btn-outline btn-sm">Feedback</button>
             </td>
-
+            
         </tr>
     );
 };
