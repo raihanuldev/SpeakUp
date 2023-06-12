@@ -1,33 +1,55 @@
 import Swal from "sweetalert2";
 import UseManageClass from "../../Hooks/UseManageClass";
 
-const ManageClassRow = ({index,item}) => {
-    const [classes,refetch] = UseManageClass();
+const ManageClassRow = ({ index, item }) => {
+    const [classes, refetch] = UseManageClass();
 
-    const handleApprove =()=>{
+    const handleDeny = () => {
         const id = item._id;
-        fetch(`http://localhost:5000/classCollection/${id}`,{
+        fetch(`http://localhost:5000/classDenied/${id}`, {
             method: 'PUT'
         })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data);
-            if (data.ok) {
-                refetch()
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Make Instructor Successfully',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            }
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.ok) {
+                    refetch()
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Class Denied Successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+
+    }
+
+    const handleApprove = () => {
+        const id = item._id;
+        fetch(`http://localhost:5000/classCollection/${id}`, {
+            method: 'PUT'
         })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.ok) {
+                    refetch()
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Class Approved Successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
     return (
         <tr>
             <th>
-                {index+1}
+                {index + 1}
             </th>
             <td>
                 <div className="flex items-center space-x-3">
@@ -50,15 +72,15 @@ const ManageClassRow = ({index,item}) => {
             </td>
             <td>{item.status}</td>
             <td>
-                <button onClick={handleApprove} disabled={item.status ==='approved'} className="btn btn-outline btn-sm">Approved</button>
+                <button onClick={handleApprove} disabled={item.status === 'approved' || item.status ==='denied'} className="btn btn-outline btn-sm">Approved</button>
             </td>
             <td>
-                <button disabled={item.status ==='approved'} className="btn btn-outline btn-sm">Deny</button>
+                <button onClick={handleDeny} disabled={item.status === 'approved' || item.status==='denied'} className="btn btn-outline btn-sm">Deny</button>
             </td>
             <td>
                 <button className="btn btn-outline btn-sm">Feedback</button>
             </td>
-            
+
         </tr>
     );
 };
