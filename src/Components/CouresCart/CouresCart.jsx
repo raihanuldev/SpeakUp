@@ -8,13 +8,17 @@ import Swal from 'sweetalert2';
 import {useNavigate } from 'react-router-dom';
 import UseCart from '../../Hooks/UseCart';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 const CouresCart = ({ object }) => {
     const { user } = useContext(AuthContex);
     const navigate = useNavigate();
     const [cart,refetch] = UseCart() 
     const [btnDisable,setDisable] = useState(false)
-    // console.log(object);
+    const [userFromData,setUserData] = useState(null)
+    
+    // console.log(userFromData);
+
     const handleCart = (cartItem) => {
         if(!user){
             Swal.fire({
@@ -63,8 +67,18 @@ const CouresCart = ({ object }) => {
                 console.log(error);
             })
         }
-
     }
+    useEffect(()=>{
+        if(user?.email){
+            fetch(`http://localhost:5000/user?email=${user.email}`)
+            .then(res=>res.json())
+            .then(data=>{
+                // console.log(data);
+                setUserData(data)
+            })
+        }
+    },[user?.email])
+
     return (
         <div className="card w-96 bg-base-100 shadow-xl" style={object.availableSeats < 0 ? { background: 'red' } : null} >
             <figure><img src={object.image} alt="Shoes" /></figure>
@@ -81,7 +95,7 @@ const CouresCart = ({ object }) => {
                 />
                 <p className='text-1xl font-semibold'>Instructor Name: {object.instructorName}</p>
                 <div className="card-actions justify-end">
-                    <button  onClick={() => handleCart(object)} disabled={object.availableSeats === 0 || btnDisable} className="btn btn-primary">Select</button>
+                    <button  onClick={() => handleCart(object)} disabled={object.availableSeats === 0 || btnDisable ||  (userFromData && (userFromData.role === 'instructor' || userFromData.role === 'admin'))} className="btn btn-primary">Select</button>
                 </div>
             </div>
         </div>
