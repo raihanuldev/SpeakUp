@@ -23,7 +23,7 @@ const Singup = () => {
                     .then(() => {
                         const user = { name: data.name, email: data.email,role:'student' }
                         console.log(user);
-                        fetch('http://localhost:5000/users',{
+                        fetch('https://speakup-ivory.vercel.app/users',{
                             method:'post',
                             headers:{
                                 'content-type':'application/json'

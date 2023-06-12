@@ -7,7 +7,7 @@ const Users = ({ user, index }) => {
     const [users, refetch] = UseUsersMange();
     const handleMakeAdmin = () => {
         const id = user._id;
-        fetch(`http://localhost:5000/make-admin/${id}`, {
+        fetch(`https://speakup-ivory.vercel.app/make-admin/${id}`, {
             method: 'PUT',
 
         })
@@ -28,7 +28,7 @@ const Users = ({ user, index }) => {
     // Make Instructor
     const handleMakeInstructor = () => {
         const id = user._id;
-        fetch(`http://localhost:5000/make-instructor/${id}`, {
+        fetch(`https://speakup-ivory.vercel.app/make-instructor/${id}`, {
             method: 'PUT',
 
         })

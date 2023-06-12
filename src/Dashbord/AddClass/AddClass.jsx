@@ -25,7 +25,7 @@ const AddClass = () => {
             status:"pending", 
             enrolled: parseInt(0)}
         console.log(item);
-        fetch('http://localhost:5000/newclass',{
+        fetch('https://speakup-ivory.vercel.app/newclass',{
             method: 'POST',
             headers : {
                 'content-type':'application/json'
