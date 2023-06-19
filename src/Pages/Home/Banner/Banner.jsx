@@ -10,14 +10,13 @@ const Banner = () => {
     return (
         <Carousel>
             <div>
-                <SliderBanner img={img1} title='To have another language is to possess a second soul.'></SliderBanner>
+                <img src={img1} alt="" />
             </div>
-            <div>
-                <SliderBanner img={img2} title='We Provide One OF The Best Outline for Every Students'></SliderBanner>
-            </div>
-            <div>
-                <SliderBanner img={img3} title='To have another language is to possess a second soul.'></SliderBanner>
-            </div>
+            <div><img src={img2} alt="" /></div>
+            <div><img src={img3} alt="" /></div>
+            <div><img src={img1} alt="" /></div>
+            <div><img src={img2} alt="" /></div>
+            <div><img src={img3} alt="" /></div>
         </Carousel>
     );
 };
