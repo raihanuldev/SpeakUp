@@ -5,11 +5,14 @@ import Instructors from "../Instructors/Instructors";
 import Testimonial from '../Testimonial/Testimonial.jsx'
 
 const Home = () => {
-    <Helmet>
-        <title>Home || SpeakUp</title>
-    </Helmet>
+
     return (
         <div>
+            <div>
+                <Helmet>
+                    <title>Home || SpeakUp</title>
+                </Helmet>
+            </div>
             <Banner></Banner>
             <Coures></Coures>
             <Instructors></Instructors>

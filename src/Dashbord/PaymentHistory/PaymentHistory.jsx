@@ -6,9 +6,7 @@ import PaymentInfo from "./PaymentInfo";
 import { Helmet } from "react-helmet-async";
 
 const PaymentHistory = () => {
-    <Helmet>
-        <title>Payment HIstory || SpeakUp</title>
-    </Helmet>
+
     const { user } = useContext(AuthContex);
     const [paymentsData, setPaymentsData] = useState([])
 
@@ -23,6 +21,9 @@ const PaymentHistory = () => {
     }, [user.email])
     return (
         <div>
+            <Helmet>
+                <title>Payment HIstory || SpeakUp</title>
+            </Helmet>
             <h3 className="text-4xl text-center font-semibold">Payment History</h3>
             <div className="overflow-x-auto">
                 <table className="table">

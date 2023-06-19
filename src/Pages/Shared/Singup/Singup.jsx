@@ -7,10 +7,8 @@ import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 
 const Singup = () => {
-    <Helmet>
-        <title>SINGUP || SPEAKUP</title>
-    </Helmet>
-    const [erros,setError]= useState('');
+
+    const [erros, setError] = useState('');
     const navigate = useNavigate();
     const { createUser, userProfileUpdate } = useContext(AuthContex)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -21,14 +19,14 @@ const Singup = () => {
                 console.log(result.user);
                 userProfileUpdate(data.name, data.photo)
                     .then(() => {
-                        const user = { name: data.name, email: data.email,role:'student' }
+                        const user = { name: data.name, email: data.email, role: 'student' }
                         console.log(user);
-                        fetch('https://speakup-ivory.vercel.app/users',{
-                            method:'post',
-                            headers:{
-                                'content-type':'application/json'
+                        fetch('https://speakup-ivory.vercel.app/users', {
+                            method: 'post',
+                            headers: {
+                                'content-type': 'application/json'
                             },
-                            body:JSON.stringify(user)   
+                            body: JSON.stringify(user)
                         })
                             .then(res => res.json())
                             .then(data => {
@@ -53,6 +51,9 @@ const Singup = () => {
     };
     return (
         <div className="hero min-h-screen bg-base-200">
+            <Helmet>
+                <title>SINGUP || SPEAKUP</title>
+            </Helmet>
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">SingUp now!</h1>

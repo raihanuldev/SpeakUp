@@ -5,9 +5,7 @@ import UseUsersMange from "../../Hooks/UseUsersMange";
 import { Helmet } from "react-helmet-async";
 
 const ManageUsers = () => {
-    <Helmet>
-        <title>MANAGE USER || SpeakUp</title>
-    </Helmet>
+
     // const [allusers, setAllusers] = useState([])
 
     const [users] = UseUsersMange();
@@ -22,6 +20,9 @@ const ManageUsers = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>MANAGE USER || SpeakUp</title>
+            </Helmet>
             <h2 className="text-3xl text-center font-semibold">Manage All Users</h2>
 
             <div className="overflow-x-auto">
@@ -39,7 +40,7 @@ const ManageUsers = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map((user,index)=> <Users key={user._id} index={index} user={user}></Users>)
+                            users.map((user, index) => <Users key={user._id} index={index} user={user}></Users>)
                         }
                     </tbody>
                 </table>

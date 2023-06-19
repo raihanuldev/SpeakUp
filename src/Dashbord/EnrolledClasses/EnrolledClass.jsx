@@ -5,9 +5,7 @@ import Item from './item';
 import { Helmet } from 'react-helmet-async';
 
 const EnrolledClass = () => {
-    <Helmet>
-        <title>ENROLLED CLASSES || SpeakUp</title>
-    </Helmet>
+
     const [enrolled, setEnrolled] = useState(null || [])
     const { user } = useContext(AuthContex);
 
@@ -26,6 +24,9 @@ const EnrolledClass = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>ENROLLED CLASSES || SpeakUp</title>
+            </Helmet>
             <h2 className='text-4xl text-center font-semibold my-4'>Continue Your Enrolled Classes</h2>
 
             <div className="overflow-x-auto">
@@ -41,7 +42,7 @@ const EnrolledClass = () => {
                     </thead>
                     <tbody>
                         {
-                            enrolled.map((item,index) => <Item key={item._id} item={item} index={index}></Item> )
+                            enrolled.map((item, index) => <Item key={item._id} item={item} index={index}></Item>)
                         }
                     </tbody>
                 </table>

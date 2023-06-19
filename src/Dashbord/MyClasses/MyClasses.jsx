@@ -4,11 +4,7 @@ import ClassesRow from "./ClassesRow";
 import { Helmet } from "react-helmet-async";
 
 const MyClasses = () => {
-    <Helmet>
-        <title>
-            My Classes || SpeakUp
-        </title>
-    </Helmet>
+
     const { user } = useContext(AuthContex);
     const [MyClasses, setClasses] = useState([]);
 
@@ -26,6 +22,11 @@ const MyClasses = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>
+                    My Classes || SpeakUp
+                </title>
+            </Helmet>
             <h2 className="text-center font-semibold text-3xl">MY CLASSES</h2>
             <div className="overflow-x-auto">
                 <table className="table">
@@ -43,11 +44,11 @@ const MyClasses = () => {
                         </tr>
                     </thead>
                     <tbody>
-                       {
-                        MyClasses.map((row,index)=> <ClassesRow key={row._id} row={row} index={index}></ClassesRow>)
-                       }
+                        {
+                            MyClasses.map((row, index) => <ClassesRow key={row._id} row={row} index={index}></ClassesRow>)
+                        }
                     </tbody>
-                    
+
                 </table>
             </div>
         </div>

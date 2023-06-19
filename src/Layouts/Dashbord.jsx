@@ -8,30 +8,31 @@ import { Helmet } from "react-helmet-async";
 // At Frist fault in the condition all Sidebar then fetch users.
 
 const Dashbord = () => {
-    <Helmet>
-        <title>Dashbord || SpeakUp</title>
-    </Helmet>
-    const [IsAdmin,setAdmin] = useState(false)
-    const [IsInstructor,setInstructor] = useState(false);
-    const [IsStudent,setStudent] = useState(false)
 
-    const [dataUser,isLoading] = UserRole();
-    
-    useEffect(()=>{
-        
-        if(dataUser?.role === 'student') {
+    const [IsAdmin, setAdmin] = useState(false)
+    const [IsInstructor, setInstructor] = useState(false);
+    const [IsStudent, setStudent] = useState(false)
+
+    const [dataUser, isLoading] = UserRole();
+
+    useEffect(() => {
+
+        if (dataUser?.role === 'student') {
             setStudent(true);
         }
-        else if(dataUser?.role === 'instructor') {
+        else if (dataUser?.role === 'instructor') {
             setInstructor(true);
         }
-        else if(dataUser?.role === 'admin') {
+        else if (dataUser?.role === 'admin') {
             setAdmin(true);
         }
-    },[dataUser,isLoading]);
+    }, [dataUser, isLoading]);
 
     return (
         <div className="drawer lg:drawer-open">
+            <Helmet>
+                <title>Dashbord || SpeakUp</title>
+            </Helmet>
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col ">
                 {/* Page content here */}

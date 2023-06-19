@@ -4,16 +4,17 @@ import Row from './Row';
 import { Helmet } from 'react-helmet-async';
 
 const MySelectedClass = () => {
-    <Helmet>
-        <title>
-            My Cart || SpeakUp
-        </title>
-    </Helmet>
+    
     const [cart] = UseCart();
     console.log(cart);
     
     return (
         <div>
+            <Helmet>
+        <title>
+            My Cart || SpeakUp
+        </title>
+    </Helmet>
             <h2 className="text-center font-semibold text-4xl">MY SELECTED CLASSES</h2>
 
             <div className="overflow-x-auto">

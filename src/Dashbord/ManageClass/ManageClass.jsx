@@ -3,12 +3,13 @@ import UseManageClass from "../../Hooks/UseManageClass";
 import ManageClassRow from "./ManageClassRow";
 
 const ManageClass = () => {
-    <Helmet>
-        <title>MANAGE CLASS || SpeakUp</title>
-    </Helmet>
+
     const [classes] = UseManageClass();
     return (
         <div>
+            <Helmet>
+                <title>MANAGE CLASS || SpeakUp</title>
+            </Helmet>
             <h3 className="text-center text-3xl font-semibold">Manage All Classes</h3>
 
             <div className="overflow-x-auto">
@@ -28,11 +29,11 @@ const ManageClass = () => {
                         </tr>
                     </thead>
                     <tbody>
-                       {
-                        classes.map((item,index)=> <ManageClassRow key={item._id} item={item} index={index}></ManageClassRow>)
-                       }
+                        {
+                            classes.map((item, index) => <ManageClassRow key={item._id} item={item} index={index}></ManageClassRow>)
+                        }
                     </tbody>
-                    
+
 
                 </table>
             </div>

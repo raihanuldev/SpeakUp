@@ -8,23 +8,24 @@ import { Helmet } from 'react-helmet-async';
 
 const stripePromis = loadStripe(import.meta.env.VITE_PK)
 const Payment = () => {
-    <Helmet>
-        <title>Pay Now || SpeakUp</title>
-    </Helmet>
-    const location = useLocation();
-    const [row,setRow] = useState(null)
 
-    useEffect(()=>{
+    const location = useLocation();
+    const [row, setRow] = useState(null)
+
+    useEffect(() => {
         const storedRow = localStorage.getItem('row');
-        if (storedRow){
+        if (storedRow) {
             setRow(JSON.parse(storedRow));
             localStorage.removeItem('row')
         }
-    },[])
+    }, [])
     const price = row?.price;
-    
+
     return (
         <div>
+            <Helmet>
+                <title>Pay Now || SpeakUp</title>
+            </Helmet>
             <h3 className="text-center text-3xl font-semibold">Please Procced to Chekout</h3>
 
             <div className='mx-12 px-12'>
