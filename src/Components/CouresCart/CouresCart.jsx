@@ -30,7 +30,7 @@ const CouresCart = ({ object }) => {
               })
             return navigate('/login')
         }
-        if (user && user.email) {
+        if (user && user?.email) {
             const { _id, price, image, name } = cartItem;
             const seletedItem = { cartId:_id, name, image, price, email: user.email }
             fetch('https://speakup-ivory.vercel.app/carts', {
@@ -42,6 +42,7 @@ const CouresCart = ({ object }) => {
             })
             .then(res=>res.json())
             .then(data=>{
+                console.log(data);
                 if (data.insertedId) {
                     refetch();
                     setDisable(true)
@@ -53,15 +54,15 @@ const CouresCart = ({ object }) => {
                         timer: 2500
                       })
                 }
-                else{
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'error',
-                        title: 'Coures Was Added!!',
-                        showConfirmButton: false,
-                        timer: 2500
-                      })
-                }
+                // else{
+                //     Swal.fire({
+                //         position: 'top-end',
+                //         icon: 'error',
+                //         title: 'Coures Was Added!!',
+                //         showConfirmButton: false,
+                //         timer: 2500
+                //       })
+                // }
             })
             .catch(error=>{
                 console.log(error);
