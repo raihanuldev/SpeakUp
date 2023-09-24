@@ -49,7 +49,7 @@ const Classes = () => {
             <Helmet>
                 <title>CLASSES || SpeakUp</title>
             </Helmet>
-            <p className="text-4xl text-center font-sans font-semibold mt-3">
+            <p className="text-4xl text-center font-sans font-semibold my-5">
                 We Provide Best Courses For Students
             </p>
             <div className="flex items-center gap-3 justify-center py-2">
