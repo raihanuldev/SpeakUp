@@ -40,7 +40,7 @@ const Pagination = ({
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={isFirstPage}
       >
-        <FaAngleLeft /> Pre
+        <FaAngleLeft /> Prev
       </button>
 
       <div className="flex flex-row gap-1">
@@ -48,9 +48,7 @@ const Pagination = ({
           <button
             key={pageNumber}
             className={`px-3 py-1 rounded-sm ${
-              currentPage === pageNumber
-                ? 'bg-base-300'
-                : 'bg-white text-[#800000]'
+              currentPage === pageNumber ? 'bg-base-300' : 'bg-white text-[#800000]'
             }`}
             onClick={() => onNumberClick(pageNumber)}
           >
@@ -61,7 +59,7 @@ const Pagination = ({
 
       <button
         className={`px-2 py-1 rounded-sm flex items-center gap-2 ${
-          isFirstPage ? 'bg-base-300 cursor-pointer' : 'bg-white'
+          isLastPage ? 'bg-base-300 cursor-not-allowed' : 'bg-white'
         }`}
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={isLastPage}
