@@ -12,23 +12,23 @@ const Nabvar = () => {
     const items = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/instructors'>Instructors</Link></li>
-        <li><Link to='/classes'>Classes</Link></li>
-        
+        <li><Link to='/classes'>Courses</Link></li>
+        <li><Link to='/comming-soon'>Community</Link></li>
+
         {
             user && <>
                 <li><Link to='/dashbord'>Dashboard</Link></li>
-                <div className="avatar">
-                    <div className="w-9 rounded-full">
-                        <img src={user?.photoURL}/>
+                <div className="avatar online w-[7%]">
+                    <div className="w-24 rounded-full"><img src={user?.photoURL} />
                     </div>
                 </div>
             </>
         }
         {
-            user ?<>
-            <li> <button className=' btn-outline' onClick={handleLogut}>Logout</button> </li>
-            </>:<>
-            <li><Link to='/login'>Login</Link></li>
+            user ? <>
+                <li> <button className=' ' onClick={handleLogut}>Logout</button> </li>
+            </> : <>
+                <li><Link to='/login'>Login</Link></li>
             </>
         }
     </>
