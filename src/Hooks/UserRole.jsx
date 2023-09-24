@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 const UserRole = ()=>{
     const {user} = useContext(AuthContex)
     const {data:dataUser,isLoading} = useQuery({
-        queryKey: [ 'user',user?.email],
+        queryKey: ['user',user?.email],
         queryFn: async()=>{
             const res = await fetch(`https://speakup-ivory.vercel.app/user?email=${user?.email}`)
             return res.json();

@@ -33,7 +33,7 @@ const CouresCart = ({ object }) => {
         if (user && user?.email) {
             const { _id, price, image, name } = cartItem;
             const seletedItem = { cartId:_id, name, image, price, email: user.email }
-            fetch('https://speakup-ivory.vercel.app/carts', {
+            fetch('http://localhost:5000/carts', {
                 method: "POST",
                 headers: {
                     'content-type':'application/json'
@@ -54,15 +54,15 @@ const CouresCart = ({ object }) => {
                         timer: 2500
                       })
                 }
-                // else{
-                //     Swal.fire({
-                //         position: 'top-end',
-                //         icon: 'error',
-                //         title: 'Coures Was Added!!',
-                //         showConfirmButton: false,
-                //         timer: 2500
-                //       })
-                // }
+                else{
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'error',
+                        title: 'Coures Was Added!!',
+                        showConfirmButton: false,
+                        timer: 2500
+                      })
+                }
             })
             .catch(error=>{
                 console.log(error);

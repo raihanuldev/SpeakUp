@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 const UseUsersMange = () => {
 
     const {data:users=[],refetch,isLoading} = useQuery({
-        queryKey: [ 'users'],
+        queryKey: ['users'],
         queryFn: async () => {
             try {
               const res = await fetch('https://speakup-ivory.vercel.app/all-users');

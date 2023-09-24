@@ -3,10 +3,11 @@ import { AuthContex } from "../Providers/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 
 const UseCart = () => {
-    const {user} = useContext(AuthContex);
+    const { user } = useContext(AuthContex);
 
     const {data:cart=[],refetch,isLoading} = useQuery({
-        queryKey: [ 'cart',user?.email],
+      
+        queryKey: ['cart',user?.email],
         queryFn: async () => {
             try {
               const res = await fetch(`https://speakup-ivory.vercel.app/carts?email=${user?.email}`);
