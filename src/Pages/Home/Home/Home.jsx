@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import Coures from "../Coures/Coures";
 import Instructors from "../Instructors/Instructors";
 import Testimonial from '../Testimonial/Testimonial.jsx'
+import Hero from "../Hero/Hero";
 
 const Home = () => {
 
@@ -13,10 +14,11 @@ const Home = () => {
                     <title>Home || SpeakUp</title>
                 </Helmet>
             </div>
+            <Hero/>
             {/* <Banner></Banner> */}
-            <Coures></Coures>
+            {/* <Coures></Coures>
             <Instructors></Instructors>
-            <Testimonial></Testimonial>
+            <Testimonial></Testimonial> */}
         </div>
     );
 };
