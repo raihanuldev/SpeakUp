@@ -55,11 +55,9 @@ const Singup = () => {
                 <title>SINGUP || SPEAKUP</title>
             </Helmet>
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">SingUp now!</h1>
-                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-300">
+                    <p className="text-3xl text-center font-serif pt-4">Join With Us</p>
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -112,11 +110,11 @@ const Singup = () => {
                                     <a href="#" className="label-text-alt link link-hover">Terms & Condition</a>
                                 </label>
                                 <label className="label">
-                                    <Link to='/login' className="label-text-alt link link-hover">Alredy An Account? Login</Link>
+                                    <Link to='/login' className="label-text-alt link link-hover">Alredy An Account?</Link>
                                 </label>
                             </div>
                         </div>
-                        <input className="btn btn-primary" type="submit" value="SIngUp" />
+                        <input className="btn btn-outline" type="submit" value="SIngUp" />
 
                     </form>
                     <Social></Social>

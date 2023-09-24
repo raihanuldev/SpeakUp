@@ -49,7 +49,7 @@ const Login = () => {
             </Helmet>
             <div className="hero-content flex-col lg:flex-row-reverse">
                 
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-300">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <p className="text-3xl font-serif text-center">Login</p>
                         <div className="form-control">
