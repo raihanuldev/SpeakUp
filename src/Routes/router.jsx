@@ -16,6 +16,7 @@ import EnrolledClass from "../Dashbord/EnrolledClasses/EnrolledClass";
 import PaymentHistory from "../Dashbord/PaymentHistory/PaymentHistory";
 import ManageUsers from "../Dashbord/ManageUsers/ManageUsers";
 import ManageClass from "../Dashbord/ManageClass/ManageClass";
+import Community from "../Pages/community/Community";
 
 export const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
             {
                 path:'/classes',
                 element: <Classes></Classes>
+            },
+            {
+                path: '/comming-soon',
+                element: <Community/>
             }
         ]
 
