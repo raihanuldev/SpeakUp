@@ -5,7 +5,7 @@ import { HiOutlineBookOpen } from 'react-icons/hi2';
 import Rating from 'react-rating';
 import { AuthContex } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
-import {useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import UseCart from '../../Hooks/UseCart';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -13,72 +13,73 @@ import { useEffect } from 'react';
 const CouresCart = ({ object }) => {
     const { user } = useContext(AuthContex);
     const navigate = useNavigate();
-    const [cart,refetch] = UseCart() 
-    const [btnDisable,setDisable] = useState(false)
-    const [userFromData,setUserData] = useState(null)
-    
+    const [cart, refetch] = UseCart()
+    const [btnDisable, setDisable] = useState(false)
+    const [userFromData, setUserData] = useState(null)
+
+   
     // console.log(userFromData);
 
     const handleCart = (cartItem) => {
-        if(!user){
+        if (!user) {
             Swal.fire({
                 position: 'top-end',
                 icon: 'warning',
                 title: 'You Need to Login Frist',
                 showConfirmButton: false,
                 timer: 2500
-              })
+            })
             return navigate('/login')
         }
         if (user && user?.email) {
             const { _id, price, image, name } = cartItem;
-            const seletedItem = { cartId:_id, name, image, price, email: user.email }
+            const seletedItem = { cartId: _id, name, image, price, email: user.email }
             fetch('http://localhost:5000/carts', {
                 method: "POST",
                 headers: {
-                    'content-type':'application/json'
+                    'content-type': 'application/json'
                 },
                 body: JSON.stringify(seletedItem)
             })
-            .then(res=>res.json())
-            .then(data=>{
-                console.log(data);
-                if (data.insertedId) {
-                    refetch();
-                    setDisable(true)
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: 'Coures Added On Cart!!',
-                        showConfirmButton: false,
-                        timer: 2500
-                      })
-                }
-                else{
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'error',
-                        title: 'Coures Was Added!!',
-                        showConfirmButton: false,
-                        timer: 2500
-                      })
-                }
-            })
-            .catch(error=>{
-                console.log(error);
-            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.insertedId) {
+                        refetch();
+                        setDisable(true)
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Coures Added On Cart!!',
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
+                    }
+                    else {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'error',
+                            title: 'Coures Was Added!!',
+                            showConfirmButton: false,
+                            timer: 2500
+                        })
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                })
         }
     }
-    useEffect(()=>{
-        if(user?.email){
+    useEffect(() => {
+        if (user?.email) {
             fetch(`https://speakup-ivory.vercel.app/user?email=${user.email}`)
-            .then(res=>res.json())
-            .then(data=>{
-                // console.log(data);
-                setUserData(data)
-            })
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(data);
+                    setUserData(data)
+                })
         }
-    },[user?.email])
+    }, [user?.email])
 
     return (
         <div className="card w-96 bg-base-100 shadow-xl" style={object.availableSeats < 0 ? { background: 'red' } : null} >
@@ -96,9 +97,10 @@ const CouresCart = ({ object }) => {
                 />
                 <p className='text-1xl font-semibold'>Instructor Name: {object.instructorName}</p>
                 <div className="card-actions justify-end">
-                    <button  onClick={() => handleCart(object)} disabled={object.availableSeats === 0 || btnDisable ||  (userFromData && (userFromData.role === 'instructor' || userFromData.role === 'admin'))} className="btn btn-primary">Select</button>
+                    <button onClick={() => handleCart(object)} disabled={object.availableSeats === 0 || btnDisable || (userFromData && (userFromData.role === 'instructor' || userFromData.role === 'admin'))} className="btn btn-primary">Select</button>
                 </div>
             </div>
+            
         </div>
     );
 };
