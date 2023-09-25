@@ -9,7 +9,7 @@ const Row = ({ row, index }) => {
     const navigate = useNavigate()
     const handlePayNow = ()=>{
         localStorage.setItem('row',JSON.stringify(row))
-        navigate('/dashbord/payment', {state:row})
+        navigate('/dashbord/payment-choose', {state:row})
     }
     // handle Remove Area
     const handleRemove =()=>{
@@ -62,7 +62,7 @@ const Row = ({ row, index }) => {
                 <button onClick={handleRemove} className='btn btn-ghost '> <FaTrashAlt></FaTrashAlt> </button>
             </td>
             <th>
-                <Link to={{ pathname: '/dashbord/payment', state: { row } }}><button onClick={handlePayNow} className="btn btn-ghost">Pay Now</button></Link>
+                <Link to={{ pathname: '/dashbord/payment-choose', state: { row } }}><button onClick={handlePayNow} className="btn btn-ghost">Pay Now</button></Link>
             </th>
         </tr>
     );

@@ -17,62 +17,72 @@ import PaymentHistory from "../Dashbord/PaymentHistory/PaymentHistory";
 import ManageUsers from "../Dashbord/ManageUsers/ManageUsers";
 import ManageClass from "../Dashbord/ManageClass/ManageClass";
 import Community from "../Pages/community/Community";
+import PaymentChoose from "../Pages/payments/PaymentChoose";
+import SslPay from "../Pages/payments/ssl/SslPay";
 
 export const router = createBrowserRouter([
     {
-        path:'/',
+        path: '/',
         element: <Main></Main>,
         errorElement: <ErrorPage></ErrorPage>,
-        children:[
+        children: [
             {
-                path:'/',
+                path: '/',
                 element: <Home></Home>
             },
             {
-                path:'/instructors',
+                path: '/instructors',
                 element: <Instructors></Instructors>
             },
             {
-                path:'/classes',
+                path: '/classes',
                 element: <Classes></Classes>
             },
             {
                 path: '/comming-soon',
-                element: <Community/>
+                element: <Community />
             }
         ]
 
     },
     {
-        path:'/login',
+        path: '/login',
         element: <Login></Login>
     },
     {
-        path:'/singup',
+        path: '/singup',
         element: <Singup></Singup>
     },
     {
-        path:'/dashbord',
+        path: '/dashbord',
         element: <PrivateRoute><Dashbord></Dashbord></PrivateRoute>,
-        children:[
+        children: [
             {
-                path:'addnew',
+                path: 'addnew',
                 element: <AddClass></AddClass>
             },
             {
-                path:'myclasses',
+                path: 'myclasses',
                 element: <MyClasses></MyClasses>
             },
             {
-                path:'mycart',
+                path: 'mycart',
                 element: <MySelectedClass></MySelectedClass>
             },
             {
-                path:'payment',
-                element: <Payment></Payment>
+                path: 'payment-choose',
+                element: <PaymentChoose />
             },
             {
-                path:'enrolled-class',
+                path: 'ssl-pay',
+                element: <SslPay />
+            },
+            {
+                path: 'stripe-pay',
+                element: <Payment />
+            },
+            {
+                path: 'enrolled-class',
                 element: <EnrolledClass></EnrolledClass>
             },
             {
@@ -80,11 +90,11 @@ export const router = createBrowserRouter([
                 element: <PaymentHistory></PaymentHistory>
             },
             {
-                path:'manage-users',
+                path: 'manage-users',
                 element: <ManageUsers></ManageUsers>
             },
             {
-                path:'manage-classes',
+                path: 'manage-classes',
                 element: <ManageClass></ManageClass>
             }
         ]
