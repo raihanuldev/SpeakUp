@@ -11,7 +11,7 @@ const Nabvar = () => {
     }
     const items = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/instructors'>Instructors</Link></li>
+        {/* <li><Link to='/instructors'>Instructors</Link></li> */}
         <li><Link to='/classes'>Courses</Link></li>
         <li><Link to='/comming-soon'>Community</Link></li>
 
