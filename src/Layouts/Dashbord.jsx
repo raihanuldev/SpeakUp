@@ -38,11 +38,13 @@ const Dashbord = () => {
                 {/* Page content here */}
                 <label htmlFor="my-drawer-2" className="btn btn-ghost drawer-button lg:hidden"><HiOutlineViewList className="text-3xl"></HiOutlineViewList> </label>
                 <Outlet></Outlet>
+                
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                <ul className="menu p-4 w-80 h-full bg-pink-200 rouned-lg text-base-content">
+                <ul className="menu p-4 w-80 h-full bg-[#6856eb] rouned-lg text-white">
                     {/* Sidebar content here */}
+                   
                     <p className="uppercase text-3xl font-semibold" >SpeakUp Dashboard !!</p>
                     {/* Student Role Pages */}
                     {IsStudent && <>
