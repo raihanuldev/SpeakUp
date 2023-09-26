@@ -17,6 +17,7 @@ import PaymentHistory from "../Dashbord/PaymentHistory/PaymentHistory";
 import ManageUsers from "../Dashbord/ManageUsers/ManageUsers";
 import ManageClass from "../Dashbord/ManageClass/ManageClass";
 import Community from "../Pages/community/Community";
+import DashbordHome from "../Dashbord/DashbordHome/DashbordHome";
 
 export const router = createBrowserRouter([
     {
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
         path:'/dashbord',
         element: <PrivateRoute><Dashbord></Dashbord></PrivateRoute>,
         children:[
+            {
+                path: '',
+                element: <DashbordHome/>
+            },
             {
                 path:'addnew',
                 element: <AddClass></AddClass>
