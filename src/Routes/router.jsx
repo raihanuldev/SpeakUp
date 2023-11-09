@@ -19,6 +19,7 @@ import ManageClass from "../Dashbord/ManageClass/ManageClass";
 import Community from "../Pages/community/Community";
 import PaymentChoose from "../Pages/payments/PaymentChoose";
 import SslPay from "../Pages/payments/ssl/SslPay";
+import DashbordHome from "../Dashbord/DashbordHome/DashbordHome";
 
 export const router = createBrowserRouter([
     {

@@ -5,6 +5,7 @@ import Rating from "react-rating";
 import CouresCart from "../../Components/CouresCart/CouresCart";
 import { Helmet } from "react-helmet-async";
 import Pagination from "../../Components/paginaition/Pagination"; // Make sure the import path is correct
+import Footer from '../../Components/Footer/Footer'
 
 const Classes = () => {
     const [classes, setClasses] = useState([]);
@@ -80,6 +81,8 @@ const Classes = () => {
                 onPageChange={handlePageChange}
                 onNumberClick={handleNumberClick}
             />
+            {/* footer */}
+            <Footer/>
         </div>
     );
 };
