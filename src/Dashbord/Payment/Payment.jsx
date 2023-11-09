@@ -10,16 +10,17 @@ const stripePromis = loadStripe(import.meta.env.VITE_PK)
 const Payment = () => {
 
     const location = useLocation();
-    const [row, setRow] = useState(null)
+    console.log(location.state?.row);
+    const row =location.state?.row;
 
-    useEffect(() => {
-        const storedRow = localStorage.getItem('row');
-        if (storedRow) {
-            setRow(JSON.parse(storedRow));
-            localStorage.removeItem('row')
-        }
-    }, [])
-    const price = row?.price;
+    // useEffect(() => {
+    //     const storedRow = localStorage.getItem('row');
+    //     if (storedRow) {
+    //         setRow(JSON.parse(storedRow));
+    //          localStorage.removeItem('row')
+    //     }
+    // }, [])
+    // const price = row?.price;
 
     return (
         <div>
