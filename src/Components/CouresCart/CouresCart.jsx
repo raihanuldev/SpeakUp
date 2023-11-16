@@ -5,7 +5,7 @@ import { HiOutlineBookOpen } from 'react-icons/hi2';
 import Rating from 'react-rating';
 import { AuthContex } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import UseCart from '../../Hooks/UseCart';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -96,9 +96,11 @@ const CouresCart = ({ object }) => {
                     readonly
                 />
                 <p className='text-1xl font-semibold'>Instructor Name: {object.instructorName}</p>
-                <div className="card-actions justify-end">
+                <div className="card-actions ">
+                    <Link to='/coures-details' state={{object}}><button className='btn btn-primary'>Coures Details</button></Link>
                     <button onClick={() => handleCart(object)} disabled={object.availableSeats === 0 || btnDisable || (userFromData && (userFromData.role === 'instructor' || userFromData.role === 'admin'))} className="btn btn-primary">Select</button>
                 </div>
+                
             </div>
             
         </div>

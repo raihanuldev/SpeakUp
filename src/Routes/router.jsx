@@ -20,6 +20,7 @@ import Community from "../Pages/community/Community";
 import PaymentChoose from "../Pages/payments/PaymentChoose";
 import SslPay from "../Pages/payments/ssl/SslPay";
 import DashbordHome from "../Dashbord/DashbordHome/DashbordHome";
+import CouresDetails from "../Pages/couresDetails/CouresDetails";
 
 export const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
             {
                 path: '/classes',
                 element: <Classes></Classes>
+            },
+            {
+                path: '/coures-details',
+                element: <CouresDetails/>
             },
             {
                 path: '/comming-soon',
