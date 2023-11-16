@@ -107,7 +107,7 @@ const Checkout = ({ price,cartId }) => {
     }
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form className='w-[300px]' onSubmit={handleSubmit}>
                 <CardElement
                     options={{
                         style: {
@@ -124,9 +124,11 @@ const Checkout = ({ price,cartId }) => {
                         },
                     }}
                 />
-                <button className='btn btn-outline btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret}>
-                    Pay
+                <button className='btn btn-outline btn-md mt-7' type="submit" disabled={!stripe || !clientSecret}>
+                    Pay Now
                 </button>
+                {/* <button></button> */}
+                
             </form>
             {cardError && <p className='text-red-600'>{cardError}</p>}
             {transaction && <p className='text-green-600'>Transaction Completed with Transaction Id : <span className='font-semibold text-1xl'>{transaction}</span></p>}

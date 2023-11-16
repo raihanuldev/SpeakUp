@@ -11,7 +11,7 @@ const Payment = () => {
 
     const location = useLocation();
     console.log(location.state?.row);
-    const row =location.state?.row;
+    const row = location.state?.row;
 
     // useEffect(() => {
     //     const storedRow = localStorage.getItem('row');
@@ -23,17 +23,23 @@ const Payment = () => {
     // const price = row?.price;
 
     return (
-        <div>
+        <div className='mockup-phone border-primary my-2'>
+            <div className="camera"></div>
             <Helmet>
                 <title>Pay Now || SpeakUp</title>
             </Helmet>
-            <h3 className="text-center text-3xl font-semibold">Please Procced to Chekout</h3>
+            <div className='display'>
+                <div className='artboard artboard-demo phone-1'>
+                    <h3 className="text-center text-3xl font-semibold">Please Procced to Chekout</h3>
+                    <div className='p-12'>
+                        <Elements stripe={stripePromis}>
+                            <Checkout price={row}></Checkout>
+                        </Elements>
+                    </div>
+                </div>
 
-            <div className='mx-12 px-12'>
-                <Elements stripe={stripePromis}>
-                    <Checkout price={row}></Checkout>
-                </Elements>
             </div>
+
         </div>
     );
 };
