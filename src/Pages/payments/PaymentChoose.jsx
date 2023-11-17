@@ -5,7 +5,6 @@ import { FaCcStripe ,FaMoneyBillWave} from "react-icons/fa";
 
 
 const PaymentChoose = () => {
-
     // useing localstore for geting data by navigate.
     const location = useLocation();
     const [row, setRow] = useState(null)
@@ -20,6 +19,15 @@ const PaymentChoose = () => {
     if (row === null) {
         return <p>loading</p>
     }
+    // ssl Payment function
+    const sslPayBtn =()=>{
+        console.log(row);
+        fetch('http://localhost:5000/sslPay',{
+            method: "POST",
+            headers: {"content-type":"application/json"},
+            body: JSON.stringify(row)
+        })
+    }
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="">
@@ -27,7 +35,7 @@ const PaymentChoose = () => {
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-300 p-10 ">
                     <p className="text-3xl font-serif p-3 mb-4">Payment With </p>
                     <Link to='/dashbord/stripe-pay' state={{row}}><button className="btn btn-outline"> <FaCcStripe /> Stripe</button></Link>
-                    <Link><button className="btn btn-outline my-2"><FaMoneyBillWave/> SSL_COMMARCE</button></Link>
+                    <button onClick={sslPayBtn} className="btn btn-outline my-2"><FaMoneyBillWave/> SSL_COMMARCE</button>
                 </div>
             </div>
         </div>
