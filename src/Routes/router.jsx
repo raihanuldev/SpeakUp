@@ -21,6 +21,7 @@ import PaymentChoose from "../Pages/payments/PaymentChoose";
 import SslPay from "../Pages/payments/ssl/SslPay";
 import DashbordHome from "../Dashbord/DashbordHome/DashbordHome";
 import CouresDetails from "../Pages/couresDetails/CouresDetails";
+import CouresContent from "../Dashbord/coures-content/CouresContent";
 
 export const router = createBrowserRouter([
     {
@@ -90,6 +91,10 @@ export const router = createBrowserRouter([
             {
                 path: 'enrolled-class',
                 element: <EnrolledClass></EnrolledClass>
+            },
+            {
+                path: 'coures-content',
+                element: <CouresContent/>
             },
             {
                 path: 'payment-history',
