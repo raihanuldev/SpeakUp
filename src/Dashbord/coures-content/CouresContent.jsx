@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './content.css';
 import MilestoneInfo from './milestoneInfo/MilestoneInfo';
+import { useLocation } from 'react-router-dom';
 
 const CouresContent = () => {
+    const location = useLocation();
+    const couresInfo = location.state?.item;
+    // Fake Data for coures Content..
     const [data, setData] = useState([]);
-    console.log(data);
+    // console.log(data);
+    
 
     useEffect(() => {
         fetch('/data.json')
@@ -14,12 +19,13 @@ const CouresContent = () => {
 
     return (
         <div className="main h-screen bg-black text-white">
+            
             {/* <!-- course details start --> */}
             <div className="milestoneDetails">
-                <img className="milestoneImage" src="/kv.png" alt="" />
+                <img className="milestoneImage" src={couresInfo.image} alt="" />
 
-                <h1 className="title text-2xl">Testing Module Sir</h1>
-                <p className="details">This is about COuresContent </p>
+                <h1 className="title text-2xl">{couresInfo.name || "Testing"}</h1>
+                <p className="details">{couresInfo.details} </p>
             </div>
             {/* <!-- course details end --> */}
 
