@@ -36,6 +36,7 @@ const Dashbord = () => {
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col ">
                 {/* Page content here */}
+                
                 <label htmlFor="my-drawer-2" className="btn btn-ghost drawer-button lg:hidden"><HiOutlineViewList className="text-3xl"></HiOutlineViewList> </label>
                 <Outlet></Outlet>
                 
@@ -72,6 +73,9 @@ const Dashbord = () => {
                     <li><Link className="text-2xl mt-2"> <HiQuestionMarkCircle></HiQuestionMarkCircle>FQA</Link></li>
                 </ul>
 
+            </div>
+            <div>
+                
             </div>
         </div>
     );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './content.css';
 import MilestoneInfo from './milestoneInfo/MilestoneInfo';
 import { useLocation } from 'react-router-dom';
