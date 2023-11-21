@@ -20,10 +20,18 @@ const ManageUsers = () => {
 
     return (
         <div>
+
             <Helmet>
                 <title>MANAGE USER || SpeakUp</title>
             </Helmet>
-            <h2 className="text-3xl text-center font-semibold">Manage All Users</h2>
+            {/* Header */}
+            <div className="flex flex-row items-center justify-between pe-2 bg-zinc-900 py-4 rounded-sm">
+                <p className="text-sm text-white md:text-white font-semibold border-l-4 border-primary ml-2 inline-block px-2 md:px-5">
+                    Manage All Users
+                </p>
+            </div>
+            {/* header end */}
+            {/* <h2 className="text-3xl text-center font-semibold">Manage All Users</h2> */}
 
             <div className="overflow-x-auto">
                 <table className="table">

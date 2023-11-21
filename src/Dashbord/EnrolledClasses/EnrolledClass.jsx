@@ -27,7 +27,12 @@ const EnrolledClass = () => {
             <Helmet>
                 <title>ENROLLED CLASSES || SpeakUp</title>
             </Helmet>
-            <h2 className='text-4xl text-center font-semibold my-4'>Continue Your Enrolled Classes</h2>
+            <div className="flex flex-row items-center justify-between pe-2 bg-zinc-900 py-4 rounded-sm">
+                <p className="text-sm text-white md:text-white font-semibold border-l-4 border-primary ml-2 inline-block px-2 md:px-5">
+                ENROLLED CLASSES
+                </p>
+            </div>
+            {/* <h2 className='text-4xl text-center font-semibold my-4'>Continue Your Enrolled Classes</h2> */}
 
             <div className="overflow-x-auto">
                 <table className="table">

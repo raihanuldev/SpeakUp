@@ -45,11 +45,11 @@ const Dashbord = () => {
                 <ul className="menu p-4 w-80 h-full bg-[#6856eb] rouned-lg text-white">
                     {/* Sidebar content here */}
                    
-                    <p className="uppercase text-3xl font-semibold" >SpeakUp Dashboard !!</p>
+                    <p className="uppercase text-3xl font-semibold" >Dashboard</p>
                     {/* Student Role Pages */}
                     {IsStudent && <>
-                        <li><Link to='/dashbord/mycart' className="text-2xl mt-2"> <HiShoppingCart></HiShoppingCart> MY Selected Classes</Link> </li>
-                        <li><Link to='/dashbord/enrolled-class' className="text-2xl mt-2"> <HiBadgeCheck></HiBadgeCheck> My Enrolled Classes</Link> </li>
+                        <li><Link to='/dashbord/mycart' className="text-2xl mt-2"> <HiShoppingCart></HiShoppingCart> Check Cart</Link> </li>
+                        <li><Link to='/dashbord/enrolled-class' className="text-2xl mt-2"> <HiBadgeCheck></HiBadgeCheck>Enrolled Classes</Link> </li>
                         <li><Link to='/dashbord/payment-history' className="text-2xl mt-2"> <HiOutlineCurrencyDollar></HiOutlineCurrencyDollar>Payment History</Link> </li>
                     </>}
                     {/* Instructor Role Pages */}
