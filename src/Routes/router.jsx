@@ -22,6 +22,7 @@ import SslPay from "../Pages/payments/ssl/SslPay";
 import DashbordHome from "../Dashbord/DashbordHome/DashbordHome";
 import CouresDetails from "../Pages/couresDetails/CouresDetails";
 import CouresContent from "../Dashbord/coures-content/CouresContent";
+import LiveChat from "../Dashbord/live-chat/LiveChat";
 
 export const router = createBrowserRouter([
     {
@@ -111,6 +112,10 @@ export const router = createBrowserRouter([
             {
                 path: 'manage-classes',
                 element: <ManageClass></ManageClass>
+            },
+            {
+                path:'live-chat',
+                element: <LiveChat/>
             }
         ]
     }

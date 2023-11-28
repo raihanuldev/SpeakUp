@@ -70,7 +70,7 @@ const Dashbord = () => {
                     }
                     <div className="divider"></div>
                     <li><Link to='/' className="text-2xl mt-2"> <HiOutlineHome></HiOutlineHome> Home</Link></li>
-                    <li><Link className="text-2xl mt-2"> <HiQuestionMarkCircle></HiQuestionMarkCircle>FQA</Link></li>
+                    <li><Link to='/dashbord/live-chat' className="text-2xl mt-2"> <HiQuestionMarkCircle></HiQuestionMarkCircle>Live Chat</Link></li>
                 </ul>
 
             </div>
