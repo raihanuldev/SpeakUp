@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import RowIns from "./RowIns";
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
+import Mentor from "../../Components/mentor/Mentor";
 
 const Instructors = () => {
   const { data: instructor = [] } = useQuery({
@@ -20,16 +21,10 @@ const Instructors = () => {
       </div>
       <div>
         <h1 className="text-3xl text-center font-semibold">Mentors Team </h1>
-        <div className="card w-96 bg-base-200 shadow-xl flex flex-col items-center p-5 transform transition-all duration-1000 hover:scale-105">
-          <div className="avatar flex items-center justify-center ">
-            <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-            </div>
-          </div>
-          <div className="card-body text-center">
-            <h2 className="card-title">Raihanul Islam</h2>
-            <h2>senior web Mentor</h2>
-          </div>
+        <div className="grid sm:grid-cols-1 md:grid-cols-3 mx-20 p-2 ">
+          {
+            instructor.map(mentor=> <Mentor mentor={mentor} key={mentor._id}/>)
+          }
         </div>
       </div>
     </div>
