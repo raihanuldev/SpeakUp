@@ -6,6 +6,7 @@ import CouresCart from "../../Components/CouresCart/CouresCart";
 import { Helmet } from "react-helmet-async";
 import Pagination from "../../Components/paginaition/Pagination"; // Make sure the import path is correct
 import Footer from "../../Components/Footer/Footer";
+import Mentor from "../../Components/mentor/Mentor";
 
 const Classes = () => {
   const [classes, setClasses] = useState([]);
@@ -71,7 +72,7 @@ const Classes = () => {
       </div>
       <div className="grid md:grid-cols-3 gap-2 mb-5">
         {classesToDisplay.map((cls) => (
-          <CouresCart key={cls._id} object={cls}></CouresCart>
+          <Mentor key={cls._id} object={cls}></Mentor>
         ))}
       </div>
       <Pagination
