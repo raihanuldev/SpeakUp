@@ -13,31 +13,15 @@ const Instructors = () => {
     },
   });
   return (
-    <div>
+    <div className="mt-[6rem]">
       <div>
         <Helmet>
           <title>Instructors || SpeakUp</title>
         </Helmet>
       </div>
-      <div className="overflow-x-auto">
-        <table className="table">
-          {/* head */}
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Image</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* row 1 */}
-            {instructor.map((row, index) => (
-              <RowIns key={row._id} row={row} index={index}></RowIns>
-            ))}
-          </tbody>
-        </table>
+      <div>
+        <h1 className="text-3xl text-center font-semibold">Mentors Team </h1>
+        {/* <h1 className="text-3xl">Mentors Team </h1> */}
       </div>
     </div>
   );
