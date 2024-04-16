@@ -17,7 +17,7 @@ const Nabvar = () => {
 
         {
             user && <>
-                <li><Link to='/dashbord'>Dashboard</Link></li>
+                <li><Link to='/dashbord/mycart'>Dashboard</Link></li>
                 <div className="avatar online w-[7%]">
                     <div className="w-24 rounded-full"><img src={user?.photoURL} />
                     </div>

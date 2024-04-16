@@ -7,7 +7,7 @@ const Item = ({ item,index }) => {
             <th>{index+1}</th>
             <td>{item.name}</td>
             <td>{item.instructorName}</td>
-            <td> <Link to='/dashbord/coures-content' state={{item}} className="btn btn-outline ">Continue Class</Link> </td>
+            <td className="btn btn-outline p-2"> Continue Class </td>
         </tr>
     );
 
