@@ -18,8 +18,8 @@ const Home = () => {
       <div className="mx-20">
         <Coures />
         <Instructors />
-      </div>
       <Testimonial />
+      </div>
     </div>
   );
 };

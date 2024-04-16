@@ -14,17 +14,47 @@ const Testimonial = () => {
         </h2>
         <p className="text-center">Some Testimonial from our Students</p>
       </div>
-      <div className="card w-96 bg-base-200 shadow-xl flex flex-col  p-5 transform transition-all duration-1000 hover:scale-105 my-3">
-        <div>
-          <p>
-            The ‘Programming Hero’ has a specialized team that assists students
-            in obtaining job placements. This is a special reward incentive for
-            dedicated l................
-          </p>
+      {/* Temp fake Dataa */}
+      <div className="grid grid-cols-1 md:grid-cols-3">
+        <div className="card w-96 bg-base-200 shadow-xl flex flex-col  p-5 transform transition-all duration-1000 hover:scale-105 my-3">
+          <div>
+            <p>
+              The ‘Programming Hero’ has a specialized team that assists
+              students in obtaining job placements. This is a special reward
+              incentive for dedicated l................
+            </p>
+          </div>
+          <div className="py-2">
+            <p className=" font-semibold">Raihan Sharif</p>
+            <p>Learned Japanes Language </p>
+          </div>
         </div>
-        <div className="py-2">
-          <p className=" font-semibold">Raihan Sharif</p>
-          <p>Learned Japanes Language </p>
+       
+        <div className="card w-96 bg-base-200 shadow-xl flex flex-col  p-5 transform transition-all duration-1000 hover:scale-105 my-3">
+          <div>
+            <p>
+              The ‘Programming Hero’ has a specialized team that assists
+              students in obtaining job placements. This is a special reward
+              incentive for dedicated l................
+            </p>
+          </div>
+          <div className="py-2">
+            <p className=" font-semibold">Raihan Sharif</p>
+            <p>Learned Japanes Language </p>
+          </div>
+        </div>
+        <div className="card w-96 bg-base-200 shadow-xl flex flex-col  p-5 transform transition-all duration-1000 hover:scale-105 my-3">
+          <div>
+            <p>
+              The ‘Programming Hero’ has a specialized team that assists
+              students in obtaining job placements. This is a special reward
+              incentive for dedicated l................
+            </p>
+          </div>
+          <div className="py-2">
+            <p className=" font-semibold">Raihan Sharif</p>
+            <p>Learned Japanes Language </p>
+          </div>
         </div>
       </div>
     </div>
