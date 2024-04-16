@@ -39,8 +39,8 @@ const Testimonial = () => {
             </p>
           </div>
           <div className="py-2">
-            <p className=" font-semibold">Raihan Sharif</p>
-            <p>Learned Japanes Language </p>
+            <p className=" font-semibold">Kamrul Hasan</p>
+            <p>Learned Hindi Language </p>
           </div>
         </div>
         <div className="card w-96 bg-base-200 shadow-xl flex flex-col  p-5 transform transition-all duration-1000 hover:scale-105 my-3">
@@ -52,8 +52,8 @@ const Testimonial = () => {
             </p>
           </div>
           <div className="py-2">
-            <p className=" font-semibold">Raihan Sharif</p>
-            <p>Learned Japanes Language </p>
+            <p className=" font-semibold">Kafia Sultana Sumi</p>
+            <p>Learned Arabic Language </p>
           </div>
         </div>
       </div>
