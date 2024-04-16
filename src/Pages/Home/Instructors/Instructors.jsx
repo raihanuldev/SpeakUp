@@ -16,8 +16,8 @@ const Instructors = () => {
 
   return (
     <div>
-      <h2 className="text-center text-3xl my-3 font-semibold">
-        Our Best Dedicated Popular Mentors
+      <h2 className="text-center text-3xl my-3 font-bold">
+         Mentors Panel_
       </h2>
       <div className="grid md:grid-cols-3 space-y-7">
         {instructors.map((instructor) => (

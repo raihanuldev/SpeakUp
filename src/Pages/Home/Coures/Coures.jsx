@@ -11,8 +11,8 @@ const Coures = () => {
   }, []);
   return (
     <div>
-      <h2 className="text-center text-3xl font-semibold">
-        We Provide Extra Ordinary Coures
+      <h2 className="text-center text-3xl font-bold my-3" >
+        Coures_
       </h2>
       <div className="grid md:grid-cols-3 space-y-7">
         {coures.map((object) => (

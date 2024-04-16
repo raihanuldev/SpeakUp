@@ -4,6 +4,7 @@ import Coures from "../Coures/Coures";
 import Instructors from "../Instructors/Instructors";
 import Testimonial from "../Testimonial/Testimonial.jsx";
 import Hero from "../Hero/Hero";
+import Mission from "../Mission/Mission.jsx";
 
 const Home = () => {
   return (
@@ -18,7 +19,8 @@ const Home = () => {
       <div className="mx-20">
         <Coures />
         <Instructors />
-      <Testimonial />
+        <Testimonial />
+        <Mission />
       </div>
     </div>
   );

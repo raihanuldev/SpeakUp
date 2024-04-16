@@ -9,10 +9,10 @@ const Testimonial = () => {
   return (
     <div className="my-7">
       <div>
-        <h2 className="text-3xl text-center font-semibold mt-3">
-          Our Students says,
+        <h2 className="text-3xl text-center font-bold mt-3">
+          Students Feedback_
         </h2>
-        <p className="text-center">Some Testimonial from our Students</p>
+        <p className="text-center font-semibold">Some Testimonial from our Students</p>
       </div>
       {/* Temp fake Dataa */}
       <div className="grid grid-cols-1 md:grid-cols-3">
