@@ -34,7 +34,7 @@ const Classes = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/allclasses")
+    fetch("https://speakup-ivory.vercel.app/allclasses")
       .then((res) => res.json())
       .then((data) => setClasses(data));
   }, []);
@@ -72,7 +72,7 @@ const Classes = () => {
       </div>
       <div className="grid md:grid-cols-3 gap-2 mb-5">
         {classesToDisplay.map((cls) => (
-          <Mentor key={cls._id} object={cls}></Mentor>
+          <CouresCart key={cls._id} object={cls}></CouresCart>
         ))}
       </div>
       <Pagination

@@ -8,7 +8,7 @@ const Instructors = () => {
   const { data: instructor = [] } = useQuery({
     queryKey: "instructor",
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/instructors");
+      const res = await fetch("https://speakup-ivory.vercel.app/instructors");
       return res.json();
     },
   });
@@ -22,9 +22,9 @@ const Instructors = () => {
       <div>
         <h1 className="text-3xl text-center font-semibold">Mentors Team </h1>
         <div className="grid sm:grid-cols-1 md:grid-cols-3 mx-20 p-2 ">
-          {
-            instructor.map(mentor=> <Mentor mentor={mentor} key={mentor._id}/>)
-          }
+          {instructor.map((mentor) => (
+            <Mentor mentor={mentor} key={mentor._id} />
+          ))}
         </div>
       </div>
     </div>

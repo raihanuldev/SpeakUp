@@ -5,6 +5,7 @@ import Instructors from "../Instructors/Instructors";
 import Testimonial from "../Testimonial/Testimonial.jsx";
 import Hero from "../Hero/Hero";
 import Mission from "../Mission/Mission.jsx";
+import Footer from "../../../Components/Footer/Footer.jsx";
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
         <Testimonial />
         <Mission />
       </div>
+      {/* <Footer/> */}
     </div>
   );
 };
