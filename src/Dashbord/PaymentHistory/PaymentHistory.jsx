@@ -11,9 +11,7 @@ const PaymentHistory = () => {
 
   useEffect(() => {
     if (user.email) {
-      fetch(
-        `https://speakup-ivory.vercel.app/payment-history?email=${user.email}`
-      )
+      fetch(`http://localhost:5000/payment-history?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           setPaymentsData(data);

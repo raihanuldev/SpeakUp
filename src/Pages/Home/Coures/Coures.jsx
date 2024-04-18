@@ -7,7 +7,6 @@ import "swiper/css/navigation";
 import { Autoplay, Navigation, Pagination } from "swiper/core";
 import CourseCard from "../../../Components/UpdatedCouresCart/UpdatedCouresCart";
 
-
 SwiperCore.use([Navigation, Pagination]);
 
 const breakpoints = {
@@ -33,7 +32,7 @@ const Coures = () => {
   const [coures, setCoures] = useState([]);
 
   useEffect(() => {
-    fetch("https://speakup-ivory.vercel.app/coures")
+    fetch("http://localhost:5000/coures")
       .then((res) => res.json())
       .then((data) => setCoures(data));
   }, []);
@@ -41,8 +40,8 @@ const Coures = () => {
     <div>
       <h2 className="text-center text-3xl font-bold my-3">Coures_</h2>
 
-     {/* COURSES SECTION */}
-     <div className="">
+      {/* COURSES SECTION */}
+      <div className="">
         <Swiper
           loop={true}
           slidesPerView={3}
@@ -58,7 +57,6 @@ const Coures = () => {
           ))}
         </Swiper>
       </div>
-
 
       {/* <div className="grid md:grid-cols-3 space-y-7">
         {coures.map((object) => (
