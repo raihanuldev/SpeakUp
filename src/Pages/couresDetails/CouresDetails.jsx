@@ -1,44 +1,50 @@
-import React from 'react';
+import React from "react";
 import { jsPDF } from "jspdf";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
 const CouresDetails = () => {
-    // get data useing Location
-    const location = useLocation();
-    const couresInfo = location.state?.object;
-    console.log(couresInfo);
-    const { details, teacherId, price, name, instructorName, ratings, image, enrolled, availableSeats } = couresInfo || {};
+  // get data useing Location
+  const location = useLocation();
+  const couresInfo = location.state;
+  console.log(couresInfo);
 
-    // pdf generator 
-    const infoPdf = () => {
-        const doc = new jsPDF('landscape', 'px', 'a4', 'false')
-        doc.addFont('Helvertica', 'bold');
-        doc.text(20, 60, `Course Name: ${name}`);
-        doc.text(20, 80, `Instructor Name: ${instructorName}`);
-        doc.text(20, 100, `Total Enrolled : ${enrolled}`);
-        doc.text(20, 120, `Available Seats : ${availableSeats}`);
-        doc.text(20, 140, `Coures Ratings  : ${ratings}`);
-        // doc.link(20, 150), `Image: Link : ${image}`;
-        doc.text(20, 160, ` Price: $${price}`);
-        doc.text(20, 180, details);
-        doc.save(` ${name}.pdf`)
-    }
-    return (
-        <div className='mt-[80px]'>
-            <p className='text-3xl font-serif text-center'>See Details About {name} Coures</p>
-
-            <div className="h-full  space-y-6 rounded-xl border border-gray-200 bg-white">
-                <img src={image} alt="" className='rounded r min-w-[100%] min-h-[20vh]' />
-                <h5 className="text-xl px-[4%] font-bold text-black-600">Course Details</h5>
-                <span className="block text-justify  px-[4%] pb-[4%] text-gray-500">{details}</span>
-                <button onClick={infoPdf}  className="download bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
-                    <svg className="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" /></svg>
-                    <span>Download Details For This Coures</span>
-                </button>
-
+  // pdf generator
+  const infoPdf = () => {
+    const doc = new jsPDF("landscape", "px", "a4", "false");
+    doc.addFont("Helvertica", "bold");
+    doc.text(20, 60, `Course Name: ${name}`);
+    doc.text(20, 80, `Instructor Name: ${instructorName}`);
+    doc.text(20, 100, `Total Enrolled : ${enrolled}`);
+    doc.text(20, 120, `Available Seats : ${availableSeats}`);
+    doc.text(20, 140, `Coures Ratings  : ${ratings}`);
+    // doc.link(20, 150), `Image: Link : ${image}`;
+    doc.text(20, 160, ` Price: $${price}`);
+    doc.text(20, 180, details);
+    doc.save(` ${name}.pdf`);
+  };
+  return (
+    <div className="mt-[6rem] grid md:grid-cols-2 ">
+      <div className="">
+        <img className="border border-gray-200 md:w-[100%] p-9 h-screen rounded-lg" src={couresInfo.image} alt="" />
+      </div>
+      <div className="ml-8">
+        <p className="text-4xl font-semibold">{couresInfo.name}</p>
+        <p>by <span className="font-semibold underline">{couresInfo.instructorName}</span></p>
+        <div className="">
+            <p className="text-xl my-3">{couresInfo.details}</p>
+            <p> <span className="text-warning font-semibold">Price</span>: <span className="font-bold"> {couresInfo.price} USD</span></p>
+            <p> <span className="text-warning font-semibold">Discount Price</span>: <span className="font-bold"> {couresInfo.price-19.8} USD</span></p>
+            <p> <span className="text-warning font-semibold">Available Seats</span>: <span className="font-bold"> {couresInfo.availableSeats}</span></p>
+            <p> <span className="text-warning font-semibold">Enrolled</span>: <span className="font-bold"> {couresInfo.enrolled}</span></p>
+            <p> <span className="text-warning font-semibold">Rating</span>: <span className="font-bold"> {couresInfo.ratings}</span></p>
+            <div>
+                <button className="btn btn-outline bg-slate-500 mr-5">Add to Cart</button>
+                <button className="btn btn-outline bg-slate-500">Download PDF</button>
             </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default CouresDetails;

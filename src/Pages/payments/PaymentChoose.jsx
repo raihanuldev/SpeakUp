@@ -20,7 +20,7 @@ const PaymentChoose = () => {
   // ssl Payment function
   const sslPayBtn = () => {
     console.log(row);
-    fetch("https://speakup-ivory.vercel.app/sslPay", {
+    fetch("http://localhost:5000/sslPay", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(row),

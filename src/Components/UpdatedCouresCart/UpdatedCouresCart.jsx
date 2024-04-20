@@ -42,7 +42,7 @@ const CourseCard = ({ course }) => {
         price,
         email: user.email,
       };
-      fetch("https://speakup-ivory.vercel.app/carts", {
+      fetch("http://localhost:5000/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -79,7 +79,7 @@ const CourseCard = ({ course }) => {
   };
   useEffect(() => {
     if (user?.email) {
-      fetch(`https://speakup-ivory.vercel.app/user?email=${user.email}`)
+      fetch(`http://localhost:5000/user?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           // console.log(data);
@@ -126,7 +126,7 @@ const CourseCard = ({ course }) => {
             </button>
             <button className="w-full bg-gray-800 text-white font-semibold py-1 md:py2 px-4 rounded-sm duration-300">
               <Link
-                to={`/courses/:${_id}`}
+                to={`/courses/${_id}`}
                 state={course}
                 course={course}
                 className="block"
