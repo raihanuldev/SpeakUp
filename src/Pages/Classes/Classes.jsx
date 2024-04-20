@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet-async";
 import Pagination from "../../Components/paginaition/Pagination"; // Make sure the import path is correct
 import Footer from "../../Components/Footer/Footer";
 import Mentor from "../../Components/mentor/Mentor";
+import CourseCard from "../../Components/UpdatedCouresCart/UpdatedCouresCart";
 
 const Classes = () => {
   const [classes, setClasses] = useState([]);
@@ -14,7 +15,7 @@ const Classes = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredClasses, setFilteredClasses] = useState([]);
   const [isSearchClicked, setIsSearchClicked] = useState(false);
-  const classesPerPage = 9;
+  const classesPerPage = 16;
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
@@ -70,9 +71,9 @@ const Classes = () => {
           className="text-cyred cursor-pointer"
         />
       </div>
-      <div className="grid md:grid-cols-3 gap-2 mb-5">
+      <div className="grid md:grid-cols-4 gap-2 mb-5">
         {classesToDisplay.map((cls) => (
-          <CouresCart key={cls._id} object={cls}></CouresCart>
+          <CourseCard key={cls._id} course={cls}></CourseCard>
         ))}
       </div>
       <Pagination
